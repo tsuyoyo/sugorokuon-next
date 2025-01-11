@@ -1,23 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Layout } from './shared/components/Layout';
-import { Provider } from 'jotai';
-import { HomePage } from './pages/HomePage';
-import { ProgramsPage } from './pages/ProgramsPage';
-import { SongsPage } from './pages/SongsPage';
+import React from 'react';
+import { CssBaseline } from '@mui/material';
+import '@fontsource/roboto';
+import HomePage from './pages/HomePage';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <Provider>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/programs" element={<ProgramsPage />} />
-            <Route path="/songs" element={<SongsPage />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </Provider>
+    <>
+      <CssBaseline />
+      <HomePage />
+    </>
   );
 };
 

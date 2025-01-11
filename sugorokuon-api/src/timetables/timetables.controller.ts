@@ -12,9 +12,7 @@ export class TimetablesController {
   /**
    * Get all timetables
    *
-   * @returns {Promise<TimetableProgram[]>} Array of timetable programs from all stations
    */
-
   @Get()
   async getAllTimetables() {
     const date = new Date();
@@ -23,15 +21,29 @@ export class TimetablesController {
     const day = date.getDate();
 
     const areas = await this.stationService.getAllRegions();
-    const allTimetables = await Promise.all(
-      areas.flatMap((area) =>
-        area.stations.map((station) =>
-          this.dataService.getTimetableByStation(station.id, year, month, day),
-        ),
-      ),
+    const regionsWithTimetables = await Promise.all(
+      areas.map(async (area) => {
+        const stationTimetables = await Promise.all(
+          area.stations.map((station) =>
+            this.dataService.getTimetableByStation(
+              station.id,
+              year,
+              month,
+              day,
+            ),
+          ),
+        );
+        return {
+          id: area.regionId,
+          name: area.regionName,
+          stations: stationTimetables.flat(),
+        };
+      }),
     );
 
-    return allTimetables.flat();
+    return {
+      regions: regionsWithTimetables,
+    };
   }
 
   /**

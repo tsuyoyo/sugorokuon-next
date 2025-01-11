@@ -1,367 +1,186 @@
-import { Box, Typography, Paper, Drawer, IconButton, Link, ButtonBase } from '@mui/material';
-import { useEffect, useState } from 'react';
-import { ErrorAlert } from '../shared/components/ErrorAlert';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, Paper, IconButton, Collapse } from '@mui/material';
 import { apiClient } from '../shared/api/client';
-import { ApiError } from '../shared/types/error';
-import CloseIcon from '@mui/icons-material/Close';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
+// APIから返ってくる実際のデータ構造に合わせて型を定義
 interface Program {
   id: string;
   title: string;
+  url: string | null;
   start_time: string;
   end_time: string;
   personalities: string | null;
   image: string | null;
-  url: string | null;
   desc: string | null;
   info: string | null;
 }
 
-interface Timetable {
+interface StationTimetable {
   stationId: string;
-  stationName: string;
+  stationName: string | null;
   date: string;
   programs: Program[];
 }
 
-const parseDescription = (text: string): string => {
-  if (!text) return '';
+interface RegionWithTimetables {
+  id: string;
+  name: string;
+  stations: StationTimetable[];
+}
 
-  // XMLヘッダーと<root>タグを除去
-  let parsed = text.replace(/<\?xml[^>]+\?>/, '').replace(/<\/?root>/g, '');
+interface ApiResponse {
+  regions: RegionWithTimetables[];
+}
 
-  // HTMLエンティティをデコード
-  parsed = parsed
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&amp;/g, '&');
+const formatTime = (timeStr: string) => {
+  // YYYYMMDDHHmmss形式の文字列をDateオブジェクトに変換
+  const year = parseInt(timeStr.substring(0, 4), 10);
+  const month = parseInt(timeStr.substring(4, 6), 10) - 1;
+  const day = parseInt(timeStr.substring(6, 8), 10);
+  const hour = parseInt(timeStr.substring(8, 10), 10);
+  const minute = parseInt(timeStr.substring(10, 12), 10);
 
-  // <br>タグを改行に変換
-  parsed = parsed.replace(/<br\s*\/?>/g, '\n');
-
-  // その他のHTMLタグを除去
-  parsed = parsed.replace(/<[^>]+>/g, '');
-
-  return parsed.trim();
+  return new Date(year, month, day, hour, minute).toLocaleTimeString('ja-JP', {
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 };
 
-export const HomePage = () => {
-  const [timetables, setTimetables] = useState<Timetable[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<ApiError | null>(null);
-  const [selectedProgram, setSelectedProgram] = useState<Program | null>(null);
+const HomePage: React.FC = () => {
+  const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
+  const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const fetchTimetables = async () => {
       try {
-        setLoading(true);
-        const response = await apiClient.get<Timetable[]>('/timetables');
-        console.log('API Response:', response.data);
-        setTimetables(response.data);
-      } catch (err) {
-        console.error('API Error:', err);
-        setError({
-          status: err instanceof Error ? 500 : 0,
-          message: err instanceof Error ? err.message : '番組表の取得に失敗しました',
-        });
-      } finally {
-        setLoading(false);
+        const timetablesResponse = await apiClient.get<ApiResponse>('/timetables');
+        setTimetableData(timetablesResponse.data.regions);
+        // 初期状態では最初の地域だけを展開
+        const initialExpanded = timetablesResponse.data.regions.reduce(
+          (acc, region, index) => {
+            acc[region.id] = index === 0;
+            return acc;
+          },
+          {} as { [key: string]: boolean },
+        );
+        setExpandedRegions(initialExpanded);
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
       }
     };
 
     fetchTimetables();
   }, []);
 
-  const handleProgramClick = (program: Program) => {
-    setSelectedProgram(program);
+  const handleToggleRegion = (regionId: string) => {
+    setExpandedRegions((prev) => ({
+      ...prev,
+      [regionId]: !prev[regionId],
+    }));
   };
 
-  const handleCloseDrawer = () => {
-    setSelectedProgram(null);
-  };
-
-  const renderProgramDetail = () => {
-    if (!selectedProgram) return null;
-
-    const description = selectedProgram.desc ? parseDescription(selectedProgram.desc) : '';
-    const info = selectedProgram.info ? parseDescription(selectedProgram.info) : '';
-
-    // メールアドレスを抽出
-    const emailMatch = description.match(/mailto:([^\s"']+)/);
-    const email = emailMatch ? emailMatch[1] : null;
-
-    return (
-      <Box sx={{ width: '100%', p: 3 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
-            番組詳細
-          </Typography>
-          <IconButton onClick={handleCloseDrawer} size="small">
-            <CloseIcon />
-          </IconButton>
-        </Box>
-
-        {selectedProgram.image && (
-          <Box
-            component="img"
-            src={selectedProgram.image}
-            alt={selectedProgram.title}
-            sx={{
-              width: '100%',
-              height: 240,
-              objectFit: 'cover',
-              borderRadius: 1,
-              mb: 3,
-            }}
-          />
-        )}
-
-        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
-          {selectedProgram.title}
-        </Typography>
-
-        <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-          <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'monospace' }}>
-            {new Date(selectedProgram.start_time).toLocaleTimeString('ja-JP', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-            {' - '}
-            {new Date(selectedProgram.end_time).toLocaleTimeString('ja-JP', {
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-          </Typography>
-        </Box>
-
-        {selectedProgram.personalities && (
-          <Typography
-            variant="subtitle1"
-            color="text.secondary"
-            gutterBottom
-            sx={{ fontWeight: 500 }}
-          >
-            {selectedProgram.personalities}
-          </Typography>
-        )}
-
-        {description && (
-          <Box sx={{ mt: 4 }}>
-            <Typography
-              variant="body1"
-              sx={{
-                whiteSpace: 'pre-wrap',
-                lineHeight: 1.8,
-                letterSpacing: 0.3,
-              }}
-            >
-              {description}
-            </Typography>
-            {email && (
-              <Link
-                href={`mailto:${email}`}
-                sx={{
-                  display: 'block',
-                  mt: 2,
-                  fontFamily: 'monospace',
-                  fontSize: '0.9rem',
-                }}
-                underline="hover"
-              >
-                {email}
-              </Link>
-            )}
-          </Box>
-        )}
-
-        {info && (
-          <Box sx={{ mt: 4 }}>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{
-                whiteSpace: 'pre-wrap',
-                lineHeight: 1.6,
-                letterSpacing: 0.2,
-              }}
-            >
-              {info}
-            </Typography>
-          </Box>
-        )}
-
-        {selectedProgram.url && (
-          <Box sx={{ mt: 4 }}>
-            <Link
-              href={selectedProgram.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              underline="hover"
-              sx={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                fontSize: '0.9rem',
-                fontWeight: 500,
-              }}
-            >
-              番組ページを開く
-            </Link>
-          </Box>
-        )}
-      </Box>
-    );
-  };
-
-  const renderStationPrograms = (timetable: Timetable) => {
-    const { stationId, stationName, programs } = timetable;
-
-    return (
-      <Box key={stationId} sx={{ mb: 2 }}>
-        <Typography variant="h6" sx={{ mb: 1, fontSize: '1.1rem' }}>
-          {stationName || '放送局名なし'}
-        </Typography>
-
+  const renderTimetablesByRegion = () => {
+    return timetableData.map((region) => (
+      <Paper key={region.id} sx={{ mb: 2, overflow: 'hidden' }}>
         <Box
           sx={{
             display: 'flex',
-            gap: 1.5,
-            overflowX: 'auto',
-            pb: 1,
-            '&::-webkit-scrollbar': {
-              display: 'none',
-            },
-            msOverflowStyle: 'none',
-            scrollbarWidth: 'none',
+            alignItems: 'center',
+            p: 2,
+            cursor: 'pointer',
+            bgcolor: 'grey.100',
           }}
+          onClick={() => handleToggleRegion(region.id)}
         >
-          {programs.map((program, index) => (
-            <Paper
-              key={`${stationId}-${program.id}-${index}`}
-              elevation={0}
-              sx={{
-                minWidth: 140,
-                backgroundColor: 'grey.50',
-                borderRadius: 1,
-                overflow: 'hidden',
-              }}
-            >
-              <ButtonBase
-                onClick={() => handleProgramClick(program)}
-                TouchRippleProps={{
-                  center: false,
-                  classes: {
-                    rippleVisible: 'ripple-visible',
-                  },
-                }}
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  display: 'block',
-                  textAlign: 'left',
-                  p: 1,
-                  transition: 'background-color 0.2s',
-                  '&:hover': {
-                    backgroundColor: 'grey.100',
-                  },
-                  '& .ripple-visible': {
-                    animation: 'ripple 1s cubic-bezier(0.4, 0, 0.2, 1)',
-                  },
-                  '@keyframes ripple': {
-                    '0%': {
-                      transform: 'scale(0)',
-                      opacity: 0.1,
-                    },
-                    '100%': {
-                      transform: 'scale(2.5)',
-                      opacity: 0,
-                    },
-                  },
-                }}
-              >
-                {program.image && (
-                  <Box
-                    component="img"
-                    src={program.image}
-                    alt={program.title}
-                    sx={{
-                      width: '100%',
-                      height: 84,
-                      objectFit: 'cover',
-                      borderRadius: 0.5,
-                      mb: 0.5,
-                    }}
-                  />
-                )}
-                <Typography
-                  variant="subtitle1"
-                  fontWeight="bold"
-                  gutterBottom
-                  sx={{ fontSize: '0.75rem' }}
-                >
-                  {program.title}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  gutterBottom
-                  sx={{ fontSize: '0.7rem' }}
-                >
-                  {new Date(program.start_time).toLocaleTimeString('ja-JP', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                  {' - '}
-                  {new Date(program.end_time).toLocaleTimeString('ja-JP', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                </Typography>
-                {program.personalities && (
-                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
-                    {program.personalities}
-                  </Typography>
-                )}
-              </ButtonBase>
-            </Paper>
-          ))}
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            {region.name}
+          </Typography>
+          <IconButton size="small">
+            {expandedRegions[region.id] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
         </Box>
-      </Box>
-    );
+
+        <Collapse in={expandedRegions[region.id]}>
+          <Box sx={{ p: 2 }}>
+            {region.stations.map((stationTimetable) => (
+              <Box key={stationTimetable.stationId} sx={{ mb: 2 }}>
+                <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                  {stationTimetable.stationName || '放送局名なし'}
+                </Typography>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    gap: 1.5,
+                    overflowX: 'auto',
+                    pb: 1,
+                    '&::-webkit-scrollbar': {
+                      display: 'none',
+                    },
+                    msOverflowStyle: 'none',
+                    scrollbarWidth: 'none',
+                  }}
+                >
+                  {stationTimetable.programs.map((program: Program, index: number) => (
+                    <Paper
+                      key={`${stationTimetable.stationId}-${program.id}-${index}`}
+                      elevation={0}
+                      sx={{
+                        minWidth: 140,
+                        backgroundColor: 'grey.50',
+                        p: 1,
+                        borderRadius: 1,
+                      }}
+                    >
+                      {program.image && (
+                        <Box
+                          component="img"
+                          src={program.image}
+                          alt={program.title}
+                          sx={{
+                            width: '100%',
+                            height: 84,
+                            objectFit: 'cover',
+                            borderRadius: 0.5,
+                            mb: 0.5,
+                          }}
+                        />
+                      )}
+                      <Typography
+                        variant="subtitle1"
+                        sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
+                      >
+                        {program.title}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{ fontSize: '0.7rem', mb: 0.5 }}
+                      >
+                        {formatTime(program.start_time)} - {formatTime(program.end_time)}
+                      </Typography>
+                      {program.personalities && (
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ fontSize: '0.7rem' }}
+                        >
+                          {program.personalities}
+                        </Typography>
+                      )}
+                    </Paper>
+                  ))}
+                </Box>
+              </Box>
+            ))}
+          </Box>
+        </Collapse>
+      </Paper>
+    ));
   };
 
-  if (loading) {
-    return (
-      <Typography variant="h6" color="text.secondary" align="center">
-        番組表を読み込んでいます...
-      </Typography>
-    );
-  }
-
-  return (
-    <Box sx={{ p: 2 }}>
-      <ErrorAlert error={error} onClose={() => setError(null)} />
-      {timetables.map(renderStationPrograms)}
-      <Drawer
-        anchor="right"
-        open={selectedProgram !== null}
-        onClose={handleCloseDrawer}
-        transitionDuration={{
-          enter: 150,
-          exit: 150,
-        }}
-        PaperProps={{
-          sx: {
-            width: '40%',
-            minWidth: 400,
-            maxWidth: 800,
-            backgroundColor: 'background.paper',
-          },
-        }}
-      >
-        {renderProgramDetail()}
-      </Drawer>
-    </Box>
-  );
+  return <Box sx={{ p: 3 }}>{renderTimetablesByRegion()}</Box>;
 };
+
+export default HomePage;
