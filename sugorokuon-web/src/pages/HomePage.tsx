@@ -1,4 +1,4 @@
-import { Box, Typography, Paper, Drawer, IconButton, Link } from '@mui/material';
+import { Box, Typography, Paper, Drawer, IconButton, Link, ButtonBase } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { ErrorAlert } from '../shared/components/ErrorAlert';
 import { apiClient } from '../shared/api/client';
@@ -95,7 +95,7 @@ export const HomePage = () => {
     return (
       <Box sx={{ width: '100%', p: 3 }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-          <Typography variant="h6" sx={{ fontSize: '1.2rem' }}>
+          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
             番組詳細
           </Typography>
           <IconButton onClick={handleCloseDrawer} size="small">
@@ -118,35 +118,58 @@ export const HomePage = () => {
           />
         )}
 
-        <Typography variant="h6" gutterBottom sx={{ fontSize: '1.1rem' }}>
+        <Typography variant="h6" gutterBottom sx={{ fontWeight: 'bold' }}>
           {selectedProgram.title}
         </Typography>
 
-        <Typography variant="body1" color="text.secondary" gutterBottom>
-          {new Date(selectedProgram.start_time).toLocaleTimeString('ja-JP', {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
-          {' - '}
-          {new Date(selectedProgram.end_time).toLocaleTimeString('ja-JP', {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
-        </Typography>
+        <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'monospace' }}>
+            {new Date(selectedProgram.start_time).toLocaleTimeString('ja-JP', {
+              hour: '2-digit',
+              minute: '2-digit',
+            })}
+            {' - '}
+            {new Date(selectedProgram.end_time).toLocaleTimeString('ja-JP', {
+              hour: '2-digit',
+              minute: '2-digit',
+            })}
+          </Typography>
+        </Box>
 
         {selectedProgram.personalities && (
-          <Typography variant="body1" color="text.secondary" gutterBottom>
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            gutterBottom
+            sx={{ fontWeight: 500 }}
+          >
             {selectedProgram.personalities}
           </Typography>
         )}
 
         {description && (
-          <Box sx={{ mt: 3 }}>
-            <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap' }}>
+          <Box sx={{ mt: 4 }}>
+            <Typography
+              variant="body1"
+              sx={{
+                whiteSpace: 'pre-wrap',
+                lineHeight: 1.8,
+                letterSpacing: 0.3,
+              }}
+            >
               {description}
             </Typography>
             {email && (
-              <Link href={`mailto:${email}`} sx={{ display: 'block', mt: 2 }} underline="hover">
+              <Link
+                href={`mailto:${email}`}
+                sx={{
+                  display: 'block',
+                  mt: 2,
+                  fontFamily: 'monospace',
+                  fontSize: '0.9rem',
+                }}
+                underline="hover"
+              >
                 {email}
               </Link>
             )}
@@ -154,20 +177,34 @@ export const HomePage = () => {
         )}
 
         {info && (
-          <Box sx={{ mt: 3 }}>
-            <Typography variant="body1" color="text.secondary" sx={{ whiteSpace: 'pre-wrap' }}>
+          <Box sx={{ mt: 4 }}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{
+                whiteSpace: 'pre-wrap',
+                lineHeight: 1.6,
+                letterSpacing: 0.2,
+              }}
+            >
               {info}
             </Typography>
           </Box>
         )}
 
         {selectedProgram.url && (
-          <Box sx={{ mt: 3 }}>
+          <Box sx={{ mt: 4 }}>
             <Link
               href={selectedProgram.url}
               target="_blank"
               rel="noopener noreferrer"
               underline="hover"
+              sx={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                fontSize: '0.9rem',
+                fontWeight: 500,
+              }}
             >
               番組ページを開く
             </Link>
@@ -203,62 +240,90 @@ export const HomePage = () => {
             <Paper
               key={`${stationId}-${program.id}-${index}`}
               elevation={0}
-              onClick={() => handleProgramClick(program)}
               sx={{
-                p: 1,
                 minWidth: 140,
                 backgroundColor: 'grey.50',
                 borderRadius: 1,
-                cursor: 'pointer',
-                transition: 'background-color 0.2s',
-                '&:hover': {
-                  backgroundColor: 'grey.100',
-                },
+                overflow: 'hidden',
               }}
             >
-              {program.image && (
-                <Box
-                  component="img"
-                  src={program.image}
-                  alt={program.title}
-                  sx={{
-                    width: '100%',
-                    height: 84,
-                    objectFit: 'cover',
-                    borderRadius: 0.5,
-                    mb: 0.5,
-                  }}
-                />
-              )}
-              <Typography
-                variant="subtitle1"
-                fontWeight="bold"
-                gutterBottom
-                sx={{ fontSize: '0.75rem' }}
+              <ButtonBase
+                onClick={() => handleProgramClick(program)}
+                TouchRippleProps={{
+                  center: false,
+                  classes: {
+                    rippleVisible: 'ripple-visible',
+                  },
+                }}
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  display: 'block',
+                  textAlign: 'left',
+                  p: 1,
+                  transition: 'background-color 0.2s',
+                  '&:hover': {
+                    backgroundColor: 'grey.100',
+                  },
+                  '& .ripple-visible': {
+                    animation: 'ripple 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                  },
+                  '@keyframes ripple': {
+                    '0%': {
+                      transform: 'scale(0)',
+                      opacity: 0.1,
+                    },
+                    '100%': {
+                      transform: 'scale(2.5)',
+                      opacity: 0,
+                    },
+                  },
+                }}
               >
-                {program.title}
-              </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                gutterBottom
-                sx={{ fontSize: '0.7rem' }}
-              >
-                {new Date(program.start_time).toLocaleTimeString('ja-JP', {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-                {' - '}
-                {new Date(program.end_time).toLocaleTimeString('ja-JP', {
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </Typography>
-              {program.personalities && (
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
-                  {program.personalities}
+                {program.image && (
+                  <Box
+                    component="img"
+                    src={program.image}
+                    alt={program.title}
+                    sx={{
+                      width: '100%',
+                      height: 84,
+                      objectFit: 'cover',
+                      borderRadius: 0.5,
+                      mb: 0.5,
+                    }}
+                  />
+                )}
+                <Typography
+                  variant="subtitle1"
+                  fontWeight="bold"
+                  gutterBottom
+                  sx={{ fontSize: '0.75rem' }}
+                >
+                  {program.title}
                 </Typography>
-              )}
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  gutterBottom
+                  sx={{ fontSize: '0.7rem' }}
+                >
+                  {new Date(program.start_time).toLocaleTimeString('ja-JP', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                  {' - '}
+                  {new Date(program.end_time).toLocaleTimeString('ja-JP', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </Typography>
+                {program.personalities && (
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
+                    {program.personalities}
+                  </Typography>
+                )}
+              </ButtonBase>
             </Paper>
           ))}
         </Box>
@@ -282,6 +347,10 @@ export const HomePage = () => {
         anchor="right"
         open={selectedProgram !== null}
         onClose={handleCloseDrawer}
+        transitionDuration={{
+          enter: 150,
+          exit: 150,
+        }}
         PaperProps={{
           sx: {
             width: '40%',
