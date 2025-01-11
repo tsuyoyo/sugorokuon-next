@@ -1,0 +1,18 @@
+// "artist": {
+//     "ids": {
+//       "ac-id": "ACJP-TRC-000-C0021-6"
+//     },
+//     "name": "RADIO FISH",
+//     "name_en": "Radio Fish",
+//     "name_kana": "レディオフィッシュ"
+//   },
+
+syntax = "proto3";
+package tsuyogoro.sugorokuon;
+
+message Artist {
+  string id = 1; // Memo: idsから作る
+  string name = 2;
+  string nameEn = 3;
+  string nameKana = 4;
+}

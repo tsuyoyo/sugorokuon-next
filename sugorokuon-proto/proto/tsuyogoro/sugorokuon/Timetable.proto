@@ -1,0 +1,12 @@
+syntax = "proto3";
+package tsuyogoro.sugorokuon;
+
+import "google/type/datetime.proto";
+import "tsuyogoro/sugorokuon/Program.proto";
+import "tsuyogoro/sugorokuon/Station.proto";
+
+message Timetable {
+  google.type.DateTime date = 1;
+  Station station = 2;
+  repeated Program programs = 3;
+}

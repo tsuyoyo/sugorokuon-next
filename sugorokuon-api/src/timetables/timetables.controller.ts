@@ -1,0 +1,110 @@
+import { Controller, Get, Param } from '@nestjs/common';
+import { RadikoTimetableDataService } from 'src/radiko/radiko-timetable-data.service';
+import { RadikoStationDataService } from 'src/radiko/radiko-station-data.service';
+
+@Controller('timetables')
+export class TimetablesController {
+  constructor(
+    private readonly dataService: RadikoTimetableDataService,
+    private readonly stationService: RadikoStationDataService,
+  ) {}
+
+  /**
+   * Get all timetables
+   *
+   * @returns {Promise<TimetableProgram[]>} Array of timetable programs from all stations
+   */
+
+  @Get()
+  async getAllTimetables() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    const areas = await this.stationService.getAllRegions();
+    const allTimetables = await Promise.all(
+      areas.flatMap((area) =>
+        area.stations.map((station) =>
+          this.dataService.getTimetableByStation(station.id, year, month, day),
+        ),
+      ),
+    );
+
+    return allTimetables.flat();
+  }
+
+  /**
+   * Get today's timetables by area
+   *
+   * @param {string} areaId - Area ID to fetch timetables for
+   * @returns {Promise<TimetableProgram[]>} Array of timetable programs for the specified area
+   */
+  @Get('area/:areaId')
+  getTimetablesByArea(@Param('areaId') areaId: string) {
+    const date = new Date();
+    return this.dataService.getTimetableByArea(
+      areaId,
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+    );
+  }
+
+  /**
+   * Get timetables by area and date
+   *
+   * @param {string} areaId - Area ID to fetch timetables for
+   * @param {string} date - Date in 'yyyymmdd' format
+   * @returns {Promise<TimetableProgram[]>} Array of timetable programs for the specified area and date
+   */
+  @Get('area/:areaId/date/:date')
+  getTimetablesByAreaAndDate(
+    @Param('areaId') areaId: string,
+    @Param('date') date: string,
+  ) {
+    return this.dataService.getTimetableByArea(
+      areaId,
+      parseInt(date.slice(0, 4), 10),
+      parseInt(date.slice(4, 6), 10),
+      parseInt(date.slice(6, 8), 10),
+    );
+  }
+
+  /**
+   * Get today's timetables by station
+   *
+   * @param {string} stationId - Station ID to fetch timetables for
+   * @returns {Promise<TimetableProgram[]>} Array of timetable programs for the specified station
+   */
+  @Get('station/:stationId')
+  getTimetablesByStation(@Param('stationId') stationId: string) {
+    const date = new Date();
+    return this.dataService.getTimetableByStation(
+      stationId,
+      date.getFullYear(),
+      date.getMonth() + 1,
+      date.getDate(),
+    );
+  }
+
+  /**
+   * Get timetables by station and date
+   *
+   * @param {string} stationId - Station ID to fetch timetables for
+   * @param {string} date - Date in 'yyyymmdd' format
+   * @returns {Promise<TimetableProgram[]>} Array of timetable programs for the specified station and date
+   */
+  @Get('station/:stationId/date/:date')
+  getTimetablesByStationAndDate(
+    @Param('stationId') stationId: string,
+    @Param('date') date: string,
+  ) {
+    return this.dataService.getTimetableByStation(
+      stationId,
+      parseInt(date.slice(0, 4), 10),
+      parseInt(date.slice(4, 6), 10),
+      parseInt(date.slice(6, 8), 10),
+    );
+  }
+}

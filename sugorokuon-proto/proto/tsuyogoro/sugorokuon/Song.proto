@@ -1,0 +1,35 @@
+// "artist_name": "RADIO FISH",
+// "displayed_start_time": "2024-12-30T16:10:23+09:00",
+// "id": "2024-12-30T16:10:23-BAYFM78",
+// "music": {
+//   "image": {
+//     "large": "https://m.media-amazon.com/images/I/51vJoXLBy0L._SL500_.jpg",
+//     "medium": "https://m.media-amazon.com/images/I/51vJoXLBy0L._SL160_.jpg",
+//     "small": "https://m.media-amazon.com/images/I/51vJoXLBy0L._SL75_.jpg"
+//   },
+//   "shops": {
+//     "amazon": "https://www.amazon.co.jp/dp/B01CUDKZWM?tag=radiko-22&linkCode=osi&th=1&psc=1",
+//     "itunes": "https://music.apple.com/jp/album/perfect-human/1068345391?i=1068345393&uo=4&at=1014xm&apo=itunes",
+//     "recochoku": "https://recochoku.jp/song/S1002580717/?affiliate=6501010009"
+//   }
+// },
+// "title": "PERFECT HUMAN"
+
+syntax = "proto3";
+package tsuyogoro.sugorokuon;
+
+import "google/type/datetime.proto";
+import "tsuyogoro/sugorokuon/Artist.proto";
+
+message SongThumbnail {
+  string small = 1;
+  string medium = 2;
+  string large = 3;
+}
+
+message Song {
+  Artist artist = 1;
+  string title = 2;
+  SongThumbnail thumbnails = 3;
+  google.type.DateTime onAirTime = 4;
+}

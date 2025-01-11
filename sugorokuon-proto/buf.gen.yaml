@@ -1,0 +1,33 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/bufbuild/buf-tour/gen
+plugins:
+  - remote: buf.build/protocolbuffers/go
+    out: gen
+    opt: paths=source_relative
+  - remote: buf.build/connectrpc/go
+    out: gen
+    opt: paths=source_relative
+
+  # Code generation for TypeScript
+  # https://buf.build/docs/bsr/remote-plugins/usage/?h=typesc#45-connect-es
+  - remote: buf.build/bufbuild/es
+    opt: target=ts
+    out: ../sugorokuon-api/src/proto/
+
+  # Code generation for TypeScript
+  # https://buf.build/docs/bsr/remote-plugins/usage/?h=typesc#45-connect-es
+  - remote: buf.build/bufbuild/es
+    out: ../node-pj-test/proto/
+
+  # Code generation for Java and Kotlin
+  # https://buf.build/protocolbuffers/kotlin?version=v29.1
+  - remote: buf.build/protocolbuffers/kotlin:v29.1
+    out: ../sugorokuon-android/proto/src/main/java/
+  - remote: buf.build/protocolbuffers/java:v29.1
+    out: ../sugorokuon-android/proto/src/main/java/
+inputs:
+  - directory: proto

@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<radiko>
+	<ttl>1800</ttl>
+	<srvtime>1716926701</srvtime>
+	<stations>
+
+
+		<station id="FMT">
+			<name>TOKYO FM</name>
+
+
+			<progs>
+				<date>20240521</date>
+
+				<prog id="9945977" master_id="" ft="20240521050000" to="20240521053000" ftl="0500" tol="0530" dur="1800">
+					<title>Memories＆Discoveries</title>
+					<url>https://audee.jp/program/show/27337</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/8adc510c-b729-4f1f-bdb4-fd8f627b6fba_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;山田花子&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	【28時台】&lt;br /&gt;◇Today&apos;s Playlist&lt;br /&gt;カノエラナさんが&lt;br /&gt;「早起きは三文の徳」をテーマにセレクト！&lt;br /&gt;&lt;br /&gt;【29時台】&lt;br /&gt;◇Classic Playlist&lt;br /&gt;クラシックライター・板倉重雄さんが&lt;br /&gt;「バレエ音楽の神様」というテーマで選曲。&lt;br /&gt;&lt;br /&gt;第一線で活躍するミュージシャン、著名クリエイター、文化人が、それぞれのリコメンド楽曲で素敵な音楽空間をプロデュース。懐かしさを感じるナンバー、新たな出会いとなるようなナンバー等、幅広い世代に、時代を超えた邦・洋楽の名曲をお届け！ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/27337&quot;&gt;https://audee.jp/program/show/27337&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://form.audee.jp/memories/message&quot;&gt;https://form.audee.jp/memories/message&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>山田花子</pfm>
+					<img>https://program-static.cf.radiko.jp/acw23umv4n.jpg</img>
+					<tag>
+						<item>
+							<name>山田花子</name>
+						</item>
+						<item>
+							<name>人気声優出演</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C006">
+							<name>女性声優</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945978" master_id="" ft="20240521053000" to="20240521060000" ftl="0530" tol="0600" dur="1800">
+					<title>FUTURES</title>
+					<url>https://audee.jp/program/show/35004</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/08621d17-e84a-4a5e-861e-c4e00e6b1275_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;田中一郎&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	中島岳志「トーキングキャッチャー」第164回(24/05/21_OA) 〜空海について 後編〜&lt;br /&gt;政治学者の中島岳志が、旬の政治的・社会的話題の本質に迫ります！&lt;br /&gt;&lt;br /&gt;今回のテーマは「空海について 後編」です。なぜ中島岳志は、「空海」を現代の様々な問題を考える上で、非常な重要な思想家、宗教哲学者と考えるようになったのか！？先週に引き続き、「空海」の自然観に迫ります！！ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/35004&quot;&gt;https://audee.jp/program/show/35004&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://form.audee.jp/futures/message&quot;&gt;https://form.audee.jp/futures/message&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>田中一郎</pfm>
+					<img>https://program-static.cf.radiko.jp/1tr5peufsr.jpg</img>
+					<tag>
+						<item>
+							<name>FUTURES</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C012">
+							<name>文化人</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945979" master_id="" ft="20240521060000" to="20240521090000" ftl="0600" tol="0900" dur="10800">
+					<title>ONE MORNING</title>
+					<url>https://www.tfm.co.jp/one/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/550b9e0d-7de5-4147-8247-71f651826f09_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;佐藤太郎&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/794e74ec-4a59-493c-b0d7-ecfd3dcc304c_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;鈴木美咲&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	＜今朝のオーディージャッジは「ライフハック」について伺います。&lt;br /&gt;7時台は「利用率が低迷するマイナ保険証」について。&lt;br /&gt;また、「改正障害者差別解消法」にフォーカス。&lt;br /&gt;今朝も「BEST HITS REQUEST」、お待ちしています！＞&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;【ユージ】と、フリーアナウンサーの【吉田明世】がお届けする&lt;br /&gt;「ONE MORNING」。&lt;br /&gt;今日も「ONE MORNING」で1日をスタートさせましょう！&lt;br /&gt;#ワンモ で"あなたの声"も聞かせてください。&lt;br /&gt;詳しくは番組のHPもしくは番組公式Xをご覧ください。&lt;br /&gt;&lt;br /&gt;選曲は、【 Best Hits Morning 】と題して、&lt;br /&gt;朝に心地よい！1日のスタートにピッタリな楽曲をセレクトしていきます。&lt;br /&gt;朝に聴きたい【 Best Hits Request 】お待ちしています！！！&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;[ ＊時間多少前後する場合があります。&lt;br /&gt;また内容も一部変更となる場合があります＊ ]&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://park.gsj.mobi/program/show/46616&quot;&gt;★無料アプリAuDeeで「#ユジコメ」を毎週配信中！ &lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://park.gsj.mobi/voice/show/14908&quot;&gt;・「#ユジコメ」最新回はこちら &lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽06:00〜 【 HEADLINE NEWS &amp; WEATHER 】&lt;br/&gt;今朝の最新ニュース、最新のお天気は？&lt;br /&gt;&lt;br /&gt;▽06:12〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽06:15〜 【 ワンコメ &amp; AuDee Judge 】&lt;br/&gt;番組がピックアップしたニュースやトピックスについての&lt;br /&gt;アナタの意見＝ワンコメをお聞かせください。&lt;br /&gt;詳しくは番組公式Xをご覧ください。&lt;br /&gt;さらに「AuDee Judge」は、&lt;br /&gt;AuDeeにある番組ページの投票フォームからお願いします。&lt;br /&gt;&lt;br /&gt;▽06:25〜 【 WEATHER 】&lt;br/&gt;全国の最新のお天気をお伝えします。&lt;br /&gt;&lt;br /&gt;▽06:30〜 【 HEADLINE NEWS &amp; WEATHER 】&lt;br/&gt;HEADLINE NEWSと天気予報をお届けします。&lt;br /&gt;&lt;br /&gt;▽06:55〜 【 MY OLYMPIC 】&lt;br/&gt;トップアスリートたちが出演！　日本各地で開催される競技会などを通して、かつての名選手から将来有望なオリンピック代表選手のタマゴまで選手を紹介。&lt;br /&gt;&lt;br /&gt;▽07:00〜 【 MORNING HEADLINE 】&lt;br/&gt;全国のお天気と最新のHEADLINE NEWSをお届け。 &lt;br /&gt;その中から気になった話題について、 &lt;br /&gt;ダイヤモンド・ライフ副編集長の【 神庭亮介 】さんが解説します。&lt;br /&gt;&lt;br /&gt;▽07:10〜 【 リポビタンD TREND NET 】&lt;br/&gt;ネットニュースの内側にいるプロフェッショナルが話題のニュースを解説。 &lt;br /&gt;本日はダイヤモンド・ライフ副編集長、神庭亮介さん。&lt;br /&gt;番組終了後にはユージが「#ユジコメ」と題し、&lt;br /&gt;自らの意見を番組Xにつぶやきます。&lt;br /&gt;今朝は「利用率が低迷するマイナ保険証」について。&lt;br /&gt;&lt;br /&gt;▽07:19〜 【 KUMON 笑顔100点満点♪ 】&lt;br/&gt;「子どもの頃、KUMONやってました！」「今、子どもが通っています！」&lt;br /&gt;…というパパやママのリアルな声をお届けします。&lt;br /&gt;&lt;br /&gt;▽07:20〜 【 ONE MORE NEWS 】&lt;br/&gt;ここ1ヶ月ほどのニュースの中から、&lt;br /&gt;気になるものを"もう1つ"ピックアップ！&lt;br /&gt;今朝は4月1日に施行された「改正障害者差別解消法」にフォーカス。&lt;br /&gt;&lt;br /&gt;▽07:29〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽07:33〜 【 TODAY&apos;S WEATHER GUIDE 】&lt;br/&gt;東京の今日のお天気をお伝えします。&lt;br /&gt;&lt;br /&gt;▽07:35〜 【 HEADLINE NEWS 】&lt;br/&gt;最新ニュースをお届けします。&lt;br /&gt;&lt;br /&gt;▽07:40〜 【 NOEVIR Song of Life 】&lt;br/&gt;数々の名曲・偉大なアーティストを一週間テーマに沿って紹介します。&lt;br /&gt;&lt;br /&gt;▽07:50〜 【 TRAFFIC REPORT &amp; 羽田フライトインフォメーション 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽08:00〜 【 SUZUKI TODAY&apos;S KEY NUMBER 】&lt;br/&gt;毎日、数字から世の中の動向を紐解いていきます。&lt;br /&gt;今日のピックアップする数字は？&lt;br /&gt;さらに最新のHEADLINE NEWSもお届けします。&lt;br /&gt;&lt;br /&gt;▽08:09〜 【 今日のスポーツ 】&lt;br/&gt;注目のスポーツニュースを紹介。&lt;br /&gt;&lt;br /&gt;▽08:10〜 【 KINKATSU TREND ONE 】&lt;br/&gt;毎週火曜日は 『KINKATSU TREND ONE』。&lt;br /&gt;「菌活」にまつわる、さまざまなトピックをご紹介します。&lt;br /&gt;&lt;br /&gt;▽08:20〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽08:30〜 【 HEADLINE NEWS 】&lt;br/&gt;最新ニュースをお伝えします。&lt;br /&gt;&lt;br /&gt;▽08:32〜 【 龍角散 presents ONE MORNING 天気予報 】&lt;br/&gt;今日の首都圏の天気をはじめ、&lt;br /&gt;湿度や花粉＆UV情報など細かくお伝えします。&lt;br /&gt;&lt;br /&gt;▽08:38〜 【 三協フロンテア presents The Starters 】&lt;br/&gt;社会に風穴を開けようと取り組む若き起業家をお迎えして、&lt;br /&gt;そのアイデアの根っこにあるものや、未来へ向けたビジョンを伺います。&lt;br /&gt;本日は、食品の粉末化によるフードロス削減の取り組みを行っている&lt;br /&gt;ASTRA FOOD PLAN 株式会社の【 加納 千裕 】代表取締役をお迎えします。&lt;br /&gt;&lt;br /&gt;▽08:51〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	本日のゲスト：		神庭亮介（ダイヤモンド・ライフ副編集長）	&lt;br /&gt;	&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/one/&quot;&gt;https://www.tfm.co.jp/one/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/one/form/&quot;&gt;https://www.tfm.co.jp/one/form/&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%83%AF%E3%83%B3%E3%83%A2&quot;&gt;#ワンモ&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/ONEMORNING_1&quot;&gt;@ONEMORNING_1&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>佐藤太郎 / 鈴木美咲</pfm>
+					<img>https://program-static.cf.radiko.jp/yowxqw2ag1.jpg</img>
+					<tag>
+						<item>
+							<name>ユージ</name>
+						</item>
+						<item>
+							<name>吉田明世</name>
+						</item>
+						<item>
+							<name>朝のニュースを効率良く</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P001">
+							<name>ニュース/天気/交通</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945980" master_id="" ft="20240521090000" to="20240521110000" ftl="0900" tol="1100" dur="7200">
+					<title>Blue Ocean</title>
+					<url>https://www.tfm.co.jp/bo/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/9cc427d8-1ef4-405e-af88-07867fcf2d68_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;高橋京子&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	今日のメッセージテーマは&lt;br /&gt;「発言、発信、アウトプットしてよかったこと」&lt;br /&gt;SNS、インスタやブログの発信、ラジオの投稿、会議で発言、、、&lt;br /&gt;アウトプットしたらいいことあった、&lt;br /&gt;仲間とつながった、夢がかなった、人生がかわった、、、&lt;br /&gt;そんなエピソードをお寄せください。&lt;br /&gt;&lt;br /&gt;メッセージは番組WEBサイトからお願いします。&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;ゲストは「発信する勇気」の著者、末吉宏臣さんです。 &lt;br /&gt;&lt;br /&gt;	▽09:27〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽09:30〜 【 Blue Ocean&#43; 】&lt;br/&gt;映画『帰ってきた あぶない刑事』をご紹介します。&lt;br /&gt;&lt;br /&gt;▽09:45〜 【 Blue Ocean 銀座美人 】&lt;br/&gt;今週は銀座3丁目にあるTARA Salon Ginzaに伺っています。&lt;br /&gt;オーナーの土村真美さんにお話を伺います。&lt;br /&gt;&lt;br /&gt;▽09:55〜 【 TOKYO FM NEWS 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽09:57〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽10:00〜 【 やかんの濃麦茶 presents Blue Ocean 初恋ぃソングリクエスト 】&lt;br/&gt;やかんの濃麦茶との出会いは、まるで初恋の様に心躍る体験。&lt;br /&gt;そんなやかんの濃麦茶の新発売を記念した特別企画「初恋ぃソングリクエスト」。&lt;br /&gt;初恋の想い出を紹介しつつ、その時に聴いていたあの頃の想い出の音楽をお届けします。&lt;br /&gt;みなさまからの初恋エピソードを大募集!&lt;br /&gt;&lt;br /&gt;▽10:10〜 【 Blue Ocean Professional 】&lt;br/&gt;ゲストは「発信する勇気」の著者、末吉宏臣さんです。&lt;br /&gt;&lt;br /&gt;▽10:26〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽10:40〜 【 Blue Ocean ラジオショッピング 】&lt;br/&gt;本日は、＜リアカメラ付き＞ミラー型ドライブレコーダーです！&lt;br /&gt;&lt;br /&gt;▽10:50〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/bo/&quot;&gt;https://www.tfm.co.jp/bo/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/bo/message&quot;&gt;https://www.tfm.co.jp/f/bo/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23BlueOcean&quot;&gt;#BlueOcean&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/BlueOceanTFM&quot;&gt;@BlueOceanTFM&lt;/a&gt;」&lt;br /&gt; facebookページは「&lt;a href=&apos;https://www.facebook.com/blueoceanTOKYOFM&apos;&gt;https://www.facebook.com/blueoceanTOKYOFM&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>高橋京子</pfm>
+					<img>https://program-static.cf.radiko.jp/qjhh59bac3.jpg</img>
+					<tag>
+						<item>
+							<name>高橋京子</name>
+						</item>
+						<item>
+							<name>オーシャンヌ</name>
+						</item>
+						<item>
+							<name>みきち</name>
+						</item>
+						<item>
+							<name>作業がはかどる</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>ブルーオーシャン</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945981" master_id="" ft="20240521110000" to="20240521113000" ftl="1100" tol="1130" dur="1800">
+					<title>ディア・フレンズ</title>
+					<url>https://www.tfm.co.jp/dear/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/e68432e8-4a0a-4d5f-8562-ca5ffc2b0189_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;渡辺真理&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	＼　ゲストは大貫妙子さん　／&lt;br /&gt;&lt;br /&gt;シンガーソングライターの大貫妙子さんが&lt;br /&gt;5/22リリースの最新音源をもってご登場！&lt;br /&gt;近年のコンサートについてたっぷりうかがいます♪ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/dear/&quot;&gt;https://www.tfm.co.jp/dear/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/dear/?catid=1632&quot;&gt;https://www.tfm.co.jp/dear/?catid=1632&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%83%87%E3%82%A3%E3%82%A2%E3%83%95%E3%83%AC%E3%83%B3%E3%82%BA&quot;&gt;#ディアフレンズ&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/dearfriends80&quot;&gt;@dearfriends80&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>渡辺真理</pfm>
+					<img>https://program-static.cf.radiko.jp/tfwzzhu4bk.jpg</img>
+					<tag>
+						<item>
+							<name>渡辺真理</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C004">
+							<name>ミュージシャン</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945982" master_id="" ft="20240521113000" to="20240521130000" ftl="1130" tol="1300" dur="5400">
+					<title>ALL-TIME BEST～LUNCH TIME POWER MUSIC～ supported by Ginza Sony Park</title>
+					<url>https://www.tfm.co.jp/atb/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/ab6dbccc-feec-4f51-8e19-ba4e1fb03ec9_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;安田レイ&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	出産でお休み中のLOVEちゃんに代わって、&lt;br /&gt;５月いっぱいは、安田レイさんがパーソナリティーを担当。&lt;br /&gt;&lt;br /&gt;＊音楽プロデューサー：亀田誠治さんがコメント出演！&lt;br /&gt;「永遠にハマっている曲」をプレイリストにしてOA&lt;br /&gt;亀田さんが実行委員長を務める「日比谷音楽祭2024」もご紹介。&lt;br /&gt;&lt;br /&gt;＊ハロースマイルリクエスト&lt;br /&gt;あなたが今日聴きたい曲のリクエストをオンエア。&lt;br /&gt;リクエストは&lt;a href=&quot;https://www.tfm.co.jp/f/atb/form&quot;&gt;TOKYO FM ALL TIME BESTの HP&lt;/a&gt;から。&lt;br /&gt;&lt;br /&gt;メッセージを読まれたリスナーの方に&lt;br /&gt;番組ステッカーをランダムにプレゼント中！ &lt;br /&gt;&lt;br /&gt;	▽11:51〜 【 TOKYO FM NEWS 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽11:53〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽12:45〜 【 Hellosmile Request 】&lt;br/&gt;あなたが今日聴きたい曲のリクエストをオンエア。&lt;br /&gt;エントリーはTOKYO FM ALL TIME BESTのホームページのメッセージフォームからお願いします。&lt;br /&gt;&lt;br /&gt;▽12:50〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽12:54〜 【 ALL-TIME BEST ラジオショッピング 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/atb/&quot;&gt;https://www.tfm.co.jp/atb/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/atb/form&quot;&gt;https://www.tfm.co.jp/f/atb/form&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23ATB&quot;&gt;#ATB&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/LOVEstaff&quot;&gt;@LOVEstaff&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>安田レイ</pfm>
+					<img>https://program-static.cf.radiko.jp/n6e7w0qpyr.jpg</img>
+					<tag>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>作業がはかどる</name>
+						</item>
+						<item>
+							<name>ドライブ中におすすめ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C015">
+							<name>ラジオDJ</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945983" master_id="" ft="20240521130000" to="20240521145500" ftl="1300" tol="1455" dur="6900">
+					<title>山崎怜奈の誰かに話したかったこと。</title>
+					<url>https://www.tfm.co.jp/darehana</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/c0d15b2f-7cdf-4eb1-bc3f-16495a05f398_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;山崎怜奈&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	★ゲストは、TikTokに降り立ったニューヒロイン。&lt;br /&gt; ピアノアイコンの五条院凌さん&lt;br /&gt;&lt;br /&gt;■「これが私のカワイイのルール！」&lt;br /&gt;これをしている自分ってカワイイと思う瞬間ありますか？&lt;br /&gt;愛嬌があると思われるためにしていることはありますか？&lt;br /&gt;あなたの思う「カワイイ」を教えてください&lt;br /&gt;&lt;br /&gt;★生活の"現場"で感じるモヤモヤ・ザラつき…&lt;br /&gt;山崎怜奈がリスナーのアナタとともに&lt;br /&gt;すっきりさせていく番組、略して「だれはな」！&lt;br /&gt;&lt;br /&gt;★＜13時05分ごろ：スピークアップ＞&lt;br /&gt;メッセージテーマは「これが私のカワイイのルール！」&lt;br /&gt;あなたの思う「カワイイ」を教えてください&lt;br /&gt;&lt;br /&gt;★＜14時00分＞&lt;br /&gt;ゲスト、五条院凌さん　&lt;br /&gt;TikTokという表現世界に降り立ったニューヒロイン。 &lt;br /&gt;オリジナルからカバーまであらゆる楽曲を&lt;br /&gt;壮絶なピアノアレンジで麗しく披露する動画が大きな話題&lt;br /&gt;今、音楽界だけでなく、独特なキャラクター、言動にも注目です！&lt;br /&gt;&lt;br /&gt;★「明治 presents クイズ脳で"グミっと"噛みくだくニュース」&lt;br /&gt;今気になるニュースから山崎怜奈がクイズを出題！&lt;br /&gt;クイズを通して時事ネタをいろんな方向から噛みくだいて楽しく理解するという、&lt;br /&gt;知的好奇心そそるコーナーです！&lt;br /&gt;明治のグミは、噛み応えに応じて「1」から「5＋」の6段階にレベル分けしています。&lt;br /&gt;クイズの難易度も、簡単な・SOFTの「１」から難問・HARDの「５＋」までご用意！&lt;br /&gt;こちらを「噛み応えチャート」と呼びます！&lt;br /&gt;&lt;br /&gt;このクイズに参加してくださった方全員の中から抽選で10名さまに、&lt;br /&gt;クイズの難易度に応じた、噛み応えチャートのmeijiグミをプレゼント！&lt;br /&gt;番組ホームページのメールフォームから回答お願いします。&lt;br /&gt;Xでのご参加もお待ちしております！&lt;br /&gt;（#ダレハナクイズ）です！&lt;br /&gt;&lt;br /&gt;★よみきかせ&lt;br /&gt;5月21日(火)　うさぎのクーモ【①】（クルミド出版）&lt;br /&gt;ナレーター：古賀涼子&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/program/show/51824&quot;&gt;★無料アプリAuDeeで「だれはな裏トーク」「#あのラジオがすごい」配信中！詳しくはこちら&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/&quot;&gt;★AuDeeについて&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽13:35〜 【 明治 presents クイズ脳で"グミっと"噛みくだくニュース 】&lt;br/&gt;クイズ脳で"グミっと"噛みくだくニュースをお届けします。&lt;br /&gt;&lt;br /&gt;▽13:50〜 【 TOKYO FM NEWS 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽13:53〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽14:32〜 【 カワイ肝油ドロップ presents よ・み・き・か・せ 】&lt;br/&gt;親子で楽しめる童話の朗読をお届けします。&lt;br /&gt;&lt;br /&gt;▽14:50〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/darehana&quot;&gt;https://www.tfm.co.jp/darehana&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/darehana/form&quot;&gt;https://www.tfm.co.jp/f/darehana/form&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%83%80%E3%83%AC%E3%83%8F%E3%83%8A&quot;&gt;#ダレハナ&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/darehanaTFM&quot;&gt;@darehanaTFM&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>山崎怜奈</pfm>
+					<img>https://program-static.cf.radiko.jp/0tnp0gxrra.jpg</img>
+					<tag>
+						<item>
+							<name>山崎怜奈</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>作業がはかどる</name>
+						</item>
+						<item>
+							<name>気分転換におすすめ</name>
+						</item>
+						<item>
+							<name>学生におすすめ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C010">
+							<name>タレント</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945984" master_id="" ft="20240521145500" to="20240521150000" ftl="1455" tol="1500" dur="300">
+					<title>IMP.のIMPickup</title>
+					<url>https://audee.jp/program/show/300007784</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/6421a8bf-b6bb-4822-b929-036d334f0796_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;IMP.&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	聞くと誰かに教えたくなる"カレンダー雑学" をピックアップするIMP.のIMPickup！&lt;br /&gt;今日は「鈴木大河」と「横原悠毅」がPick up！&lt;br /&gt;&lt;br /&gt;毎週土曜14:55には、AuDee他にてアフタートークを配信！&lt;br /&gt;番組へのメッセージは、ウェブサイトのメッセージフォームから！ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/300007784&quot;&gt;https://audee.jp/program/show/300007784&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/imp/message&quot;&gt;https://www.tfm.co.jp/f/imp/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23IMPickup&quot;&gt;#IMPickup&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/7mpickup_tfm&quot;&gt;@7mpickup_tfm&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>IMP.</pfm>
+					<img>https://program-static.cf.radiko.jp/e4jdf66z0v.jpg</img>
+					<tag>
+						<item>
+							<name>IMP.</name>
+						</item>
+						<item>
+							<name>IMPickup</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C007">
+							<name>男性アイドル</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945985" master_id="" ft="20240521150000" to="20240521155000" ftl="1500" tol="1550" dur="3000">
+					<title>THE TRAD</title>
+					<url>https://www.tfm.co.jp/trad/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/b6af5df6-f1d3-4d2c-9b18-9e8b0995578b_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;稲垣吾郎&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/5c1823db-3faa-4fb3-b0f0-dda896c9ed74_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;山本里菜&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	3時台は『令和の中森明菜』といわれ、&lt;br /&gt;80年代カルチャーをこよなく愛す「イバさん」を迎えての中森明菜特集！&lt;br /&gt;&lt;br /&gt;4時台は俳優の石原さとみさんを迎えてお送りします！&lt;br /&gt;&lt;br /&gt;「上質な音楽を、じっくり味わう。」をコンセプトにした&lt;br /&gt;架空のレコード店『THE TRAD』を舞台に、各音楽ジャンルに秀でたマイスターたちとともに、&lt;br /&gt;本質的で流行に左右されない上質な音楽と趣味の話題をお届け！&lt;br /&gt;店長は稲垣吾郎、専属店員は、フリーアナウンサーの山本里菜。&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/program/show/46878&quot;&gt;★無料アプリAuDeeで「ハマ・オカモトのAFTER THE TRAD」「専属店員・山本里菜、中川絵美里のTRAD日誌～B面トーク～」を配信中！詳しくはこちら&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/about&quot;&gt;★AuDee(オーディー)について&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽15:40〜 【 TOKYO FM NEWS 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽15:42〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/trad/&quot;&gt;https://www.tfm.co.jp/trad/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/trad/form/&quot;&gt;https://www.tfm.co.jp/trad/form/&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23THETRAD&quot;&gt;#THETRAD&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/THETRAD_TFM&quot;&gt;@THETRAD_TFM&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>稲垣吾郎 / 山本里菜</pfm>
+					<img>https://program-static.cf.radiko.jp/t3ayffexoh.jpg</img>
+					<tag>
+						<item>
+							<name>稲垣吾郎</name>
+						</item>
+						<item>
+							<name>ハマ・オカモト</name>
+						</item>
+						<item>
+							<name>山本里菜</name>
+						</item>
+						<item>
+							<name>中川絵美里</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>人気アーティストトーク</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C004">
+							<name>ミュージシャン</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945986" master_id="" ft="20240521155000" to="20240521160000" ftl="1550" tol="1600" dur="600">
+					<title>あぐりずむ</title>
+					<url>https://www.tfm.co.jp/agrizm/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/4454b28f-31ba-4e78-be23-7c287df874bc_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;川瀬良子&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	「土壌」と「土」は一体どう違うか分かりますか？&lt;br /&gt;今回は、土壌の研究をしている東京農業大学・土壌肥料学研究室の加藤拓先生が、&lt;br /&gt;「土壌とは何か？」について解説します。 &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/agrizm/&quot;&gt;https://www.tfm.co.jp/agrizm/&lt;/a&gt;&lt;br /&gt;	メールアドレス：&lt;a href=&quot;mailto:agri@tfm.jp&quot;&gt;agri@tfm.jp&lt;/a&gt;&lt;br /&gt; facebookページは「&lt;a href=&apos;https://www.facebook.com/agrizm&apos;&gt;https://www.facebook.com/agrizm&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>川瀬良子</pfm>
+					<img>https://program-static.cf.radiko.jp/l33s2joeqx.jpg</img>
+					<tag>
+						<item>
+							<name>川瀬良子</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C010">
+							<name>タレント</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945987" master_id="" ft="20240521160000" to="20240521165000" ftl="1600" tol="1650" dur="3000">
+					<title>THE TRAD</title>
+					<url>https://www.tfm.co.jp/trad/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/b6af5df6-f1d3-4d2c-9b18-9e8b0995578b_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;稲垣吾郎&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/5c1823db-3faa-4fb3-b0f0-dda896c9ed74_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;山本里菜&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	3時台は『令和の中森明菜』といわれ、&lt;br /&gt;80年代カルチャーをこよなく愛す「イバさん」を迎えての中森明菜特集！&lt;br /&gt;&lt;br /&gt;4時台は俳優の石原さとみさんを迎えてお送りします！&lt;br /&gt;&lt;br /&gt;「上質な音楽を、じっくり味わう。」をコンセプトにした&lt;br /&gt;架空のレコード店『THE TRAD』を舞台に、各音楽ジャンルに秀でたマイスターたちとともに、&lt;br /&gt;本質的で流行に左右されない上質な音楽と趣味の話題をお届け！&lt;br /&gt;店長は稲垣吾郎、専属店員は、フリーアナウンサーの山本里菜。&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/program/show/46878&quot;&gt;★無料アプリAuDeeで「ハマ・オカモトのAFTER THE TRAD」「専属店員・山本里菜、中川絵美里のTRAD日誌～B面トーク～」を配信中！詳しくはこちら&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/about&quot;&gt;★AuDee(オーディー)について&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽16:45〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/trad/&quot;&gt;https://www.tfm.co.jp/trad/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/trad/form/&quot;&gt;https://www.tfm.co.jp/trad/form/&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23THETRAD&quot;&gt;#THETRAD&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/THETRAD_TFM&quot;&gt;@THETRAD_TFM&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>稲垣吾郎 / 山本里菜</pfm>
+					<img>https://program-static.cf.radiko.jp/t3ayffexoh.jpg</img>
+					<tag>
+						<item>
+							<name>稲垣吾郎</name>
+						</item>
+						<item>
+							<name>ハマ・オカモト</name>
+						</item>
+						<item>
+							<name>山本里菜</name>
+						</item>
+						<item>
+							<name>中川絵美里</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>人気アーティストトーク</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C004">
+							<name>ミュージシャン</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945988" master_id="" ft="20240521165000" to="20240521170000" ftl="1650" tol="1700" dur="600">
+					<title>SUZUKI No.1 Factory</title>
+					<url>https://www.tfm.co.jp/factory/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/184d0e29-7d00-4077-a6ff-56230638408b_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;八嶋智人&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	俳優・八嶋智人がパーソナリティをつとめる番組『SUZUKI No.1 Factory』。&lt;br /&gt;音楽・映画・漫画・アニメ・グルメ・スポーツなど、様々なジャンルで現在・過去に「No.1」となったトピックを毎日ピックアップ。その裏にあるエピソードと共に、栄光のNo.1ストーリーや、明日話したくなるトリビアを紹介していきます。&lt;br /&gt;&lt;br /&gt;今日は、日本一のラーメン県を目指して…！山形独自の小麦を開発！？という話題をご紹介！ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/factory/&quot;&gt;https://www.tfm.co.jp/factory/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/factory/message&quot;&gt;https://www.tfm.co.jp/f/factory/message&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>八嶋智人</pfm>
+					<img>https://program-static.cf.radiko.jp/1451ldoagg.jpg</img>
+					<tag>
+						<item>
+							<name>八嶋智人</name>
+						</item>
+						<item>
+							<name>人気俳優トーク</name>
+						</item>
+						<item>
+							<name>作業がはかどる</name>
+						</item>
+						<item>
+							<name>ドライブ中におすすめ</name>
+						</item>
+						<item>
+							<name>気分転換におすすめ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C002">
+							<name>俳優</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945989" master_id="" ft="20240521170000" to="20240521200000" ftl="1700" tol="2000" dur="10800">
+					<title>Skyrocket Company</title>
+					<url>https://www.tfm.co.jp/sky/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/e7fe9386-22ba-4b6d-a68e-f994c1192e02_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;マンボウやしろ&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/033c4850-f417-4e97-9887-92dfca8edf25_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;浜崎美保&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	＜本日のテーマは『令和の熱血！案件 〜私のまわりのアツすぎる人〜』&lt;br /&gt;皆さんからのメッセージ、お待ちしてます！＞&lt;br /&gt;&lt;br /&gt;明日への狼煙を上げる、ラジオの中の会社「Skyrocket Company」&lt;br /&gt;本部長のマンボウやしろ、秘書の浜崎美保、&lt;br /&gt;ラジオを聴いてるあなたはリスナー社員！&lt;br /&gt;働く人はもちろん、老若男女全ての人が参加可能のアフター会議！&lt;br /&gt;夕方5時からのお耳の出社！お待ちしています！&lt;br /&gt;&lt;br /&gt;本日のテーマは『令和の熱血！案件 〜私のまわりのアツすぎる人〜』&lt;br /&gt;みなさんからのメッセージ、お待ちしてます！&lt;br /&gt;&lt;br /&gt;17時35分頃からは【湖池屋歌エーーーール】&lt;br /&gt;このコーナーは曜日ごとの選曲テーマで働くアナタに音楽でエールを届けます！&lt;br /&gt;火曜日のテーマは『恋ケアソング』&lt;br /&gt;アナタの恋にまつわる思い出や相談をケアする1曲をオンエア！&lt;br /&gt;メッセージが紹介された方には湖池屋お菓子詰め合わせをプレゼント！&lt;br /&gt;&lt;br /&gt;18時00分頃からは 【キリン搾り あなたに Congratulations!】 &lt;br /&gt;自分の誕生日、大切な人の誕生日、初めて付き合った日、 &lt;br /&gt;会社に受かった日など あなたが、お祝いしたいことはありませんか？ &lt;br /&gt;スカロケから、あなたに Congratulations!の乾杯をお送りします！ &lt;br /&gt;&lt;br /&gt;18時15分頃からは【ヨドバシカメラ presents 家電で快適！生活向上委員会！】&lt;br /&gt;みなさんが抱える暮らしのお悩みを解消するため、&lt;br /&gt;家電アドバイザーが毎日をもっと快適に変える家電を紹介！&lt;br /&gt;お悩みメッセージが採用された方には「家電補助金」として&lt;br /&gt;ヨドバシカメラ全店で使える商品券1万円分をプレゼント！&lt;br /&gt;&lt;br /&gt;18時45分頃からは【あなたの心、あたためます課？supported by なべやき屋キンレイ】&lt;br /&gt;一人暮らしの毎日や、一人で向き合うお仕事など、&lt;br /&gt;一人で過ごしていると心がちょっとだけ冷えちゃう時もあるはず。&lt;br /&gt;そんなあなたの心をスカロケ のマスコット社員「やしこ」が、ほっこりあたためます！&lt;br /&gt;コーナー内でメッセージが紹介された方には、キンレイ商品詰め合わせ4種をプレゼント！&lt;br /&gt;さらに、ご紹介された方以外にも、毎月抽選で50名様にプレゼントします！&lt;br /&gt;&lt;br /&gt;19時00分頃からは【RAPで乾杯！アゲ↑ラップ！】&lt;br /&gt;あなたが暮らしの中で感じる「ちょっとテンション下がるあるある」に、&lt;br /&gt;DJ・ラップ芸人デッカちゃんがカンパイラップでテンションをあげちゃうコーナー！&lt;br /&gt;メッセージが採用された方には「キリン一番搾り350ml缶1ケース（24本入り）」をプレゼントします！&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/program/show/45119&quot;&gt;★無料アプリAuDeeで「スカロケアフターアフター会議」を毎週配信中！詳しくはこちら&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://audee.jp/&quot;&gt;★AuDeeについて&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽17:25〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽17:39〜 【 湖池屋 歌エーーーール！ 】&lt;br/&gt;夕方5時台、ちょっと疲れが見えてくる時間。&lt;br /&gt;まだお仕事をがんばる人も...アフター5を楽しむ人も...音楽でアナタの背中を押させてください！&lt;br /&gt;アナタのシチュエーションにピッタリハマる１曲で今日を軽やかに乗り切りましょう！&lt;br /&gt;月曜日から木曜日まで、曜日替わりのテーマであなたの参加をお待ちしています！&lt;br /&gt;&lt;br /&gt;火曜日のテーマは『恋ケアソング』&lt;br /&gt;アナタの恋にまつわる思い出や相談をケアする1曲をオンエア！&lt;br /&gt;メッセージが紹介された方には湖池屋お菓子詰め合わせをプレゼント！&lt;br /&gt;&lt;br /&gt;▽17:53〜 【 TOKYO FM NEWS 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽17:56〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽18:00〜 【 キリン一番搾り あなたにCongratulations! 】&lt;br/&gt;自分の誕生日、大切な人の誕生日、初めて付き合った日、会社に受かった日…&lt;br /&gt;両親の結婚記念日、何かを始めた日、周年などなど…あなたが、お祝いしたいことはありませんか？&lt;br /&gt;スカロケから、あなたに Congratulations!の乾杯をお送りします！&lt;br /&gt;家事に、残業に忙しい毎日ですが一旦やめて、特別な日くらい乾杯しましょう！&lt;br /&gt;&lt;br /&gt;▽18:15〜 【 家電で快適！生活向上委員会！ 】&lt;br/&gt;家電アドバイザーの奈津子さんが社員の皆さんが抱える様々な暮らしの悩みを解消するため、快適な家電であなたの暮らしへのお手伝い！&lt;br /&gt;「家電で生活を変えたい」という社員のあなた、番組HPの応募フォームからメッセージを送ってね！&lt;br /&gt;メッセージが採用された社員にはヨドバシカメラ全店で使える商品券１万円分をプレゼント！&lt;br /&gt;&lt;br /&gt;▽18:36〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;▽18:40〜 【 あなたの心、あたためます課？supported by なべやき屋キンレイ 】&lt;br/&gt;一人暮らしや、一人でお仕事に向き合っていると心がちょっとだけ冷えちゃうこともあるはず！&lt;br /&gt;そんなあなたの心を、「スカロケのマスコット的な女子社員 やしこ」がほっこりあたためます！&lt;br /&gt;この度、関東のFMラジオ界に登場した「なべやき屋キンレイ」さんとスカロケがお届けするコーナーです！&lt;br /&gt;&lt;br /&gt;メッセージが採用された方には豪華賞品をプレゼント！&lt;br /&gt;&lt;br /&gt;▽19:05〜 【 スカロケ一番搾り 】&lt;br/&gt;曜日替わりでスカロケの一番搾りなコーナーをお届けします！&lt;br /&gt;&lt;br /&gt;火曜日は【RAPで乾杯！アゲ↑ラップ！】&lt;br /&gt;あなたが暮らしの中で感じる "ちょいテンション下がる時あるある" を教えて下さい。&lt;br /&gt;DJ・ラップ芸人のデッカチャンが、あなたのテンションをアゲる "カンパイアゲラップ" を届けてくれます。&lt;br /&gt;紹介された方には『キリン 一番搾り 350ml 缶 1ケース (24本入)』をプレゼントします。&lt;br /&gt;&lt;br /&gt;▽19:10〜 【 JOGLIS インフォメーション 】&lt;br/&gt;ー&lt;br /&gt;&lt;br /&gt;▽19:45〜 【 交通情報 】&lt;br/&gt;---&lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/sky/&quot;&gt;https://www.tfm.co.jp/sky/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/sc/message&quot;&gt;https://www.tfm.co.jp/f/sc/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%82%B9%E3%82%AB%E3%83%AD%E3%82%B1&quot;&gt;#スカロケ&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/Skyrocket_Co&quot;&gt;@Skyrocket_Co&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>マンボウやしろ / 浜崎美保</pfm>
+					<img>https://program-static.cf.radiko.jp/lseaykosc6.jpg</img>
+					<tag>
+						<item>
+							<name>マンボウやしろ</name>
+						</item>
+						<item>
+							<name>浜崎美保</name>
+						</item>
+						<item>
+							<name>スカロケ</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>作業がはかどる作業</name>
+						</item>
+						<item>
+							<name>気分転換におすすめ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C015">
+							<name>ラジオDJ</name>
+						</personality>
+						<program id="P006">
+							<name>バラエティ</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945990" master_id="" ft="20240521200000" to="20240521205500" ftl="2000" tol="2055" dur="3300">
+					<title>Roomie Roomie!</title>
+					<url>https://www.tfm.co.jp/roomie/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/116f2540-119c-4043-b962-18a08824edb8_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;野呂佳代&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	＼ピン芸人・永野さんが…生・登・場！！！！／&lt;br /&gt;&lt;br /&gt;『Roomie Roomie！』は、&lt;br /&gt;大きなシェアハウスに住む友達のように、&lt;br /&gt;この番組があなたのRoomie（ルームメイト）になれたらいいな！な気持ちで&lt;br /&gt;月曜日から木曜日まで、夜８時から生放送中です♪&lt;br /&gt;&lt;br /&gt;▼本日のゲストは『 ピン芸人・永野さん 』&lt;br /&gt;&lt;br /&gt;永野さんに聞きたい事、伝えたい事、&lt;br /&gt;自由にメッセージを書き込んでください！！&lt;br /&gt;&lt;br /&gt;↓ ↓ メッセージの書き込みはこちらから↓ ↓ ↓&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/roomie/&quot;&gt;★【メッセージフォーム】から書き込んでね★&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;★SNSハッシュタグは「#ルミルミ」&lt;br /&gt;生放送中だけじゃなくてもみんなの呟き見てますよ！&lt;br /&gt;ぜひ #ルミルミ でポストしてくださいね～！ &lt;br /&gt;&lt;br /&gt;	本日のゲスト：		永野	&lt;br /&gt;	&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/roomie/&quot;&gt;https://www.tfm.co.jp/roomie/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/roomie/message&quot;&gt;https://www.tfm.co.jp/f/roomie/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%83%AB%E3%83%9F%E3%83%AB%E3%83%9F&quot;&gt;#ルミルミ&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/roomietfm&quot;&gt;@roomietfm&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>野呂佳代 ゲスト: 永野</pfm>
+					<img>https://program-static.cf.radiko.jp/ni6avs0g8g.jpg</img>
+					<tag>
+						<item>
+							<name>野呂佳代</name>
+						</item>
+						<item>
+							<name>眉村ちあき</name>
+						</item>
+						<item>
+							<name>ルミルミ</name>
+						</item>
+						<item>
+							<name>ルーミールーミー</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>人気アーティストトーク</name>
+						</item>
+						<item>
+							<name>人気俳優トーク</name>
+						</item>
+						<item>
+							<name>気分転換におすすめ</name>
+						</item>
+						<item>
+							<name>学生におすすめ</name>
+						</item>
+						<item>
+							<name>Youtuber出演</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C010">
+							<name>タレント</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945991" master_id="" ft="20240521205500" to="20240521210000" ftl="2055" tol="2100" dur="300">
+					<title>TOKYO FM NEWS</title>
+					<url></url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;	--- &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm></pfm>
+					<img>https://program-static.cf.radiko.jp/u18wcitzhy.jpg</img>
+					<tag>
+						<item>
+							<name>大谷翔平</name>
+						</item>
+						<item>
+							<name>スポーツ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P001">
+							<name>ニュース/天気/交通</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945992" master_id="" ft="20240521210000" to="20240521213000" ftl="2100" tol="2130" dur="1800">
+					<title>What a Wonderful Radio!!☆☆☆</title>
+					<url>https://audee.jp/program/show/60925</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/8e1996e3-c91c-495c-b492-ae0152c95b56_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;結那（Liella!）&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/9ebdbfe8-7e19-4a26-9f3f-fa16ed830322_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;坂倉 花（Liella!）&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	☆2人はどの曲の話をしてる？？&lt;br /&gt;Liella!の楽曲クイズ、ぜひご参加ください♪&lt;br /&gt;&lt;br /&gt;★「ラブライブ！スーパースター!!」で、スクールアイドル・Liella!として活躍中の&lt;br /&gt;結那（ウィーン・マルガレーテ役）と坂倉 花（鬼塚冬毬役）の2人が担当！&lt;br /&gt;&lt;br /&gt;☆スマホアプリAuDeeでは、放送日の正午と放送後に、スピンオフコンテンツを配信！&lt;br /&gt;&lt;a href=&quot;https://audee.jp/program/show/60925&quot;&gt;⇒放送とあわせてお楽しみください♪&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;★メッセージもお待ちしています！&lt;br /&gt;Liella!メンバーへの質問、2人に応援してほしいこと、&lt;br /&gt;そして、Liella!のユニット・5yncri5e!の楽曲『Dancing Raspberry』の&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/f/wonderful/message&quot;&gt;感想・考察もお待ちしております！&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/60925&quot;&gt;https://audee.jp/program/show/60925&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/wonderful/message&quot;&gt;https://www.tfm.co.jp/f/wonderful/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%82%86%E3%81%84%E3%81%95%E3%81%8F%E3%83%A9%E3%82%B8%E3%82%AA&quot;&gt;#ゆいさくラジオ&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>結那（Liella!） / 坂倉 花（Liella!）</pfm>
+					<img>https://program-static.cf.radiko.jp/y3x7kj6hyu.jpg</img>
+					<tag>
+						<item>
+							<name>アニメ・マンガ情報を発見</name>
+						</item>
+						<item>
+							<name>人気声優出演</name>
+						</item>
+						<item>
+							<name>人気アーティストトーク</name>
+						</item>
+						<item>
+							<name>学生におすすめ</name>
+						</item>
+						<item>
+							<name>Liella!</name>
+						</item>
+						<item>
+							<name>結那</name>
+						</item>
+						<item>
+							<name>坂倉花</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C006">
+							<name>女性声優</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945993" master_id="" ft="20240521213000" to="20240521215500" ftl="2130" tol="2155" dur="1500">
+					<title>トーキョー・エフエムロヒー</title>
+					<url>https://www.tfm.co.jp/fmrohee/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/37a0fc34-ded8-4671-a6ae-313c8a3f59ed_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;ヒコロヒー&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	毎日の生活の中でちょっとした違和感を覚えることはありませんか？&lt;br /&gt;今夜は、リスナーの皆さんからいただいた「ささいな違和感」をご紹介！&lt;br /&gt;最近ヒコロヒーが行ってきた旅のお話も！&lt;br /&gt;&lt;br /&gt;--------------------------------------------------------&lt;br /&gt;&lt;br /&gt;【メッセージ募集のお知らせ！】&lt;br /&gt;&lt;br /&gt;①『おもむろに1曲！』(略して"おもチュン")&lt;br /&gt;リスナーのみなさんから頂いた、"お題"に対して、&lt;br /&gt;ヒコロヒーがおもむろに1曲（=チューン）選んでみようじゃないか！というコーナー！&lt;br /&gt;&lt;br /&gt;②『時には名言を！』&lt;br /&gt;誰かが言っていた名言、本やマンガ、映画やドラマで知った&lt;br /&gt;"胸アツ"な人生や恋愛の教訓など、みんなでシェアしてみませんか？&lt;br /&gt;&lt;br /&gt;③『ささいな違和感』&lt;br /&gt;"これどう思う？"という、ささいな違和感はありますか？&lt;br /&gt;例) ごはん屋さんで流れていたX JAPAN「紅」(琴ver.) など&lt;br /&gt;&lt;br /&gt;④『お別れのひとこと』&lt;br /&gt;番組のエンディングのラスト、お別れするときのひとことを募集中！&lt;br /&gt;&lt;br /&gt;その他、ヒコロヒーへ質問・相談などお待ちしています！&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/f/fmrohee/message&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;メッセージフォームはこちらから！&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/fmrohee/&quot;&gt;https://www.tfm.co.jp/fmrohee/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/fmrohee/message&quot;&gt;https://www.tfm.co.jp/f/fmrohee/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%82%A8%E3%83%95%E3%82%A8%E3%83%A0%E3%83%AD%E3%83%92%E3%83%BC&quot;&gt;#エフエムロヒー&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/fmrohee&quot;&gt;@fmrohee&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>ヒコロヒー</pfm>
+					<img>https://program-static.cf.radiko.jp/56nou6oaqc.jpg</img>
+					<tag>
+						<item>
+							<name>ヒコロヒー</name>
+						</item>
+						<item>
+							<name>お笑い芸人の最強トーク</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C009">
+							<name>芸人</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945994" master_id="" ft="20240521215500" to="20240521220000" ftl="2155" tol="2200" dur="300">
+					<title>TOKYO FM NEWS～きょうのSHO TIME!</title>
+					<url></url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;	ニュースと合わせて、ロサンゼルス・ドジャース 大谷翔平選手の情報を毎日お届けします。 &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm></pfm>
+					<img>https://program-static.cf.radiko.jp/ayc1n8dr3l.jpg</img>
+					<tag>
+						<item>
+							<name>大谷翔平</name>
+						</item>
+						<item>
+							<name>スポーツ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P001">
+							<name>ニュース/天気/交通</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945995" master_id="" ft="20240521220000" to="20240521235500" ftl="2200" tol="2355" dur="6900">
+					<title>SCHOOL OF LOCK!</title>
+					<url>https://www.tfm.co.jp/lock/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/1cf466eb-26ca-4d02-ba4a-aa79ed53e47b_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;こもり校長&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/784aa663-fb47-411b-aaf2-cecb36645e00_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;COCO教頭&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	君にとって「幸せ」って何？三月のパンタシア 先生が初来校！&lt;br /&gt;&lt;br /&gt;未来の鍵を握るラジオの中の学校、SCHOOL OF LOCK!&lt;br /&gt;今夜は、ゲスト講師として【 三月のパンタシア 】先生が初来校！&lt;br /&gt;&lt;br /&gt;授業テーマは『 "幸せ" ってなんだろう。』&lt;br /&gt;&lt;br /&gt;今日は "幸せ" とは、どんなものなのか、みんなで考えてみたい。&lt;br /&gt;&lt;br /&gt;ご飯を食べてるときや寝てるときに感じるかもしれないし、&lt;br /&gt;友達と遊んでるとき、誰かのことを思うとき、&lt;br /&gt;一人の時間、何かに満たされたとき、、、&lt;br /&gt;&lt;br /&gt;幸せってどんなことを指してるんだろう。&lt;br /&gt;&lt;br /&gt;君にとっての幸せとは？&lt;br /&gt;どんなときに幸せを感じる？&lt;br /&gt;君が考える幸せってどんなもの？&lt;br /&gt;&lt;br /&gt;[ 学校掲示板 ]に書き込むか&lt;br /&gt;[ LINE ] や [ 番組メール ] まで送ってください。&lt;br /&gt;&lt;br /&gt;三月のパンタシア先生の新曲「僕らの幸福論」「スノーノワール」を聴いた生徒は感想も待ってるよ！&lt;br /&gt;&lt;br /&gt;---番組へのメッセージはコチラから!---&lt;br /&gt;◇&lt;a href=&quot;https://www.tfm.co.jp/lock/r/solbbs&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;学校掲示板に書き込む&lt;/a&gt;（掲示板は登録無料のアプリです!）&lt;br /&gt;◇&lt;a href=&quot;https://www.tfm.co.jp/lock/mail/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;メールを送る&lt;/a&gt;&lt;br /&gt;◇&lt;a href=&quot;https://line.me/ti/p/%40sol_info&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;公式LINEアカウントから送る&lt;/a&gt;&lt;br /&gt;◇FAXを送る：03-3221-1800&lt;br /&gt;★&lt;a href=&quot;https://www.tfm.co.jp/lock/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;番組WEBサイトはコチラ!&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;【今夜の時間割】&lt;br /&gt;▽22:00～『生放送教室①』＜こもり校長・COCO教頭＞&lt;br /&gt;▽22:18頃～『INI LOCKS!』＜髙塚大夢＞&lt;br /&gt;▽22:30頃～『生放送教室②』＜こもり校長・COCO教頭＞&lt;br /&gt;▽22:55頃～(一部地域を除き)『どっちのCat or Dog』&lt;br /&gt;▽23:00～【 ボカロLOCKS 】ボカロソング好きの生徒は集まれ！&lt;br /&gt;▽23:08頃～『Saucy LOCKS!』＜Saucy Dog＞&lt;br /&gt;▽23:30頃～『生放送教室③』＜こもり校長・COCO教頭＞&lt;br /&gt;SCHOOL OF LOCK!は毎日入れ替わりでアーティスト講師が登場!&lt;br /&gt;各曜日の詳しい時間割は&lt;a href=&quot;https://www.tfm.co.jp/lock/information/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;SCHOOL OF LOCK!の入学のしおり&lt;/a&gt;をチェック!&lt;br /&gt;&lt;br /&gt;---今夜の各LOCKS!の授業内容はコチラ!---&lt;br /&gt;▽22:18頃～『INI LOCKS! 』&lt;br /&gt;毎月3週目はINI髙塚大夢先生の"チュータールーム No.3"が開室！&lt;br /&gt;&lt;br /&gt;今夜は昨日とは打って変わって（昨日出席してない生徒はradikoのタイムフリーで出席してね!）&lt;br /&gt;みんなから届いた書き込みをゆっくりチェックしていきます〜！&lt;br /&gt;&lt;br /&gt;【INILOCKS!掲示板】はいつでも書き込むことができるので、ここから授業にたくさん参加してくださいね！&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/r/inibbs&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★INI LOCKS!掲示板へ&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/ini/mail/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★髙塚大夢先生へのメールはコチラ!&lt;/a&gt;&lt;br /&gt;★INI LOCKS!の放送後記は&lt;a href=&quot;https://www.tfm.co.jp/lock/ini/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;▶︎コチラから!&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;▽22:55頃～(一部地域を除き)『どっちのCat or Dog』&lt;br /&gt;この2択なら、どちらを選ぶ？&lt;br /&gt;こんなシチュエーションなら、どんな行動をとる？&lt;br /&gt;生徒の声は、"今"を知るための貴重な情報！&lt;br /&gt;君の選択が、かつてない"ビッグ・スクール・データ"を完成させる…！&lt;br /&gt;さあ、選ぶのはどっち？&lt;br /&gt;◇&lt;a href=&quot;https://www.tfm.co.jp/lock/research/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;特設サイト&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;▽23:00〜 『ボカロLOCKS!』&lt;br /&gt;ボカロ大好き職員であるちゃんこ先生が職員室にボカロPをお呼びしてボカロについて学んでいくボカロLOCKS！&lt;br /&gt;番組YouTubeは、毎週21:00に更新！&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=RRpeF9MDRik&amp;list=PLZMPbvy6h_ancHM9_16akMBkhYCNnHhVa&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★ボカロLOCKS!の動画はまとめてコチラでチェック!&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/r/vocalobbs&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★ボカロ掲示板へ&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/vocalo/mail/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★ボカロLOCKS!へのメッセージはコチラから!&lt;/a&gt;&lt;br /&gt;★ボカロLOCKS!の特設サイトは&lt;a href=&quot;https://www.tfm.co.jp/lock/vocalo/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;▶︎コチラから!&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;▽23:08頃～『Saucy LOCKS!』&lt;br /&gt;毎週火曜日は、みんなの普通を受け止める！&lt;br /&gt;普通の講師・Saucy Dog先生による「Saucy LOCKS!」&lt;br /&gt;&lt;br /&gt;今夜は、異性の引いてしまう行動の普通についての授業です！&lt;br /&gt;&lt;br /&gt;Saucy LOCKS!掲示板への書き込み、またはメールで送ってください！&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/saucydog/bbs.html&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★Saucy LOCKS!掲示板へ&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;https://www.tfm.co.jp/lock/saucydog/mail/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;★Saucy Dog先生へのメールはコチラ!&lt;/a&gt;&lt;br /&gt;★Saucy LOCKS!の放送後記は&lt;a href=&quot;https://www.tfm.co.jp/lock/saucydog/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;▶︎コチラから!&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;◎番組公式SNSもチェックしてね!&lt;br /&gt;◇&lt;a href=&quot;https://twitter.com/sol_info&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;Twitter&lt;/a&gt;&lt;br /&gt;◇&lt;a href=&quot;https://line.me/ti/p/%40sol_info&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;LINE&lt;/a&gt;&lt;br /&gt;◇&lt;a href=&quot;https://www.youtube.com/channel/UC18QpD-m44JvPUgp_hsWEKA&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;YouTube&lt;/a&gt;&lt;br /&gt;◇&lt;a href=&quot;https://vt.tiktok.com/ZSJ4XfosL/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;TikTok&lt;/a&gt;&lt;br /&gt;◇&lt;a href=&quot;https://www.instagram.com/schooloflock_official/&quot; target=&quot;_blank&quot; style=&quot;text-decoration: underline;&quot;&gt;Instagram&lt;/a&gt; &lt;br /&gt;&lt;br /&gt;	▽22:15〜 【 INI LOCKS! 】&lt;br/&gt;3週目にだけ開室する、生徒の夢や進路などについて個人指導を担う"チュータールーム No.5"&lt;br /&gt;SCHOOL OF LOCK!の元生徒でもある、INIの髙塚大夢先生が担当！&lt;br /&gt;「夢」や「進路」などの悩み、大夢先生に話したいこと質問などなんでも、&lt;br /&gt;［INI LOCKS!掲示板］もしくは［INI LOCKS!宛のメール］から送ってください。待っています！&lt;br /&gt;&lt;br /&gt;▽22:55〜 【 どっちのCat or Dog 】&lt;br/&gt;毎日1問、生徒のみんなにクエスチョンを実施して、その結果を発表していきます。&lt;br /&gt;クエスチョンの回答締め切りは生放送教室が始まる22時まで！&lt;br /&gt;&lt;br /&gt;この2択なら、どっちを選ぶ？&lt;br /&gt;こんなシチュエーションなら、どんな行動をとる？&lt;br /&gt;&lt;br /&gt;生徒の声は"今"を知るための貴重な情報！&lt;br /&gt;君の選択が、かつてない"ビッグ・スクール・データ"を完成させる…！&lt;br /&gt;&lt;br /&gt;さあ、選ぶのはどっち？&lt;br /&gt;&lt;br /&gt;▽23:00〜 【 ボカロLOCKS! 】&lt;br/&gt;毎週火曜日21時にSOL公式ニコニコ動画とSOL公式YouTubeで動画更新!&lt;br /&gt;夜な夜なYouTubeでボカロソングを食い漁るボカロ大好き職員であるちゃんこ先生が、SCHOOL OF LOCK!の職員室にボカロPをお呼びして、ボカロソングについて学んでいくボカロLOCKS!&lt;br /&gt;生徒のみんなからはオススメのボカロソング、ボカロP。そして、自分でボカロソングを作っている未来のボカロPからのメッセージを待ってます！&lt;br /&gt;&lt;br /&gt;▽23:10〜 【 Saucy LOCKS! 】&lt;br/&gt;毎週火曜日は、みんなの普通を受け止める！&lt;br /&gt;普通の講師・Saucy Dog先生による「Saucy LOCKS!」&lt;br /&gt;&lt;br /&gt;	本日のゲスト：		三月のパンタシア	&lt;br /&gt;	&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/lock/&quot;&gt;https://www.tfm.co.jp/lock/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/lock/mail/&quot;&gt;https://www.tfm.co.jp/lock/mail/&lt;/a&gt;&lt;br /&gt;	FAX：03-3221-1800&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB%E3%82%AA%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF&quot;&gt;#スクールオブロック&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/sol_info&quot;&gt;@sol_info&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>こもり校長 / COCO教頭 ゲスト: 三月のパンタシア</pfm>
+					<img>https://program-static.cf.radiko.jp/nq5eu447th.jpg</img>
+					<tag>
+						<item>
+							<name>こもり校長</name>
+						</item>
+						<item>
+							<name>COCO教頭</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>人気アーティストトーク</name>
+						</item>
+						<item>
+							<name>人気声優出演</name>
+						</item>
+						<item>
+							<name>YouTuber出演</name>
+						</item>
+						<item>
+							<name>坂道グループ出演</name>
+						</item>
+						<item>
+							<name>作業がはかどる</name>
+						</item>
+						<item>
+							<name>寝る前に聴きたい</name>
+						</item>
+						<item>
+							<name>学生におすすめ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C015">
+							<name>ラジオDJ</name>
+						</personality>
+						<program id="P006">
+							<name>バラエティ</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945996" master_id="" ft="20240521235500" to="20240522000000" ftl="2355" tol="2400" dur="300">
+					<title>TOKYO FM NEWS</title>
+					<url></url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;	--- &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm></pfm>
+					<img>https://program-static.cf.radiko.jp/u18wcitzhy.jpg</img>
+					<tag>
+						<item>
+							<name>大谷翔平</name>
+						</item>
+						<item>
+							<name>スポーツ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P001">
+							<name>ニュース/天気/交通</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945997" master_id="" ft="20240522000000" to="20240522005500" ftl="2400" tol="2455" dur="3300">
+					<title>JET STREAM</title>
+					<url>https://www.tfm.co.jp/jetstream/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/5118d4cf-f8f3-4504-9f62-ff2cd7c7b41c_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;木村達也&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	JET STREAM・・・作家が描く世界への旅。&lt;br /&gt;&lt;br /&gt;今週は、作家・原田マハのエッセイ「フーテンのマハ」を&lt;br /&gt;一部編集してお送りします。 &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/jetstream/&quot;&gt;https://www.tfm.co.jp/jetstream/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/jetstream/message&quot;&gt;https://www.tfm.co.jp/f/jetstream/message&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>木村達也</pfm>
+					<img>https://program-static.cf.radiko.jp/greinlrspi.jpg</img>
+					<tag>
+						<item>
+							<name>木村達也</name>
+						</item>
+						<item>
+							<name>夜間飛行</name>
+						</item>
+						<item>
+							<name>音楽との出会いが楽しめる</name>
+						</item>
+						<item>
+							<name>朗読を楽しめる</name>
+						</item>
+						<item>
+							<name>寝る前に聴きたい</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C002">
+							<name>俳優</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945998" master_id="" ft="20240522005500" to="20240522010000" ftl="2455" tol="2500" dur="300">
+					<title>TOKYO FM NEWS</title>
+					<url></url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;	--- &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm></pfm>
+					<img>https://program-static.cf.radiko.jp/u18wcitzhy.jpg</img>
+					<tag>
+						<item>
+							<name>大谷翔平</name>
+						</item>
+						<item>
+							<name>スポーツ</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C001">
+							<name>アナウンサー</name>
+						</personality>
+						<program id="P001">
+							<name>ニュース/天気/交通</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9945999" master_id="" ft="20240522010000" to="20240522020000" ftl="2500" tol="2600" dur="3600">
+					<title>TOKYO SPEAKEASY</title>
+					<url>https://www.tfm.co.jp/speakeasy/</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/bc6a0a57-81ec-458a-8e90-82e85df1afb8_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;OCTPATH 小堀 柊&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/22682051-eed5-433a-95f9-d36fe8326352_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;OCTPATH 栗田 航兵&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/9b5d6842-32cd-458b-ac2b-f730499bed98_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;チョコレートプラネット&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	禁酒法の時代に、こっそりひそかに経営していたBAR『SPEAKEASY』。 2024年の東京の街にも、そんなひそかなバーが、まだあった。 それは、とある小さな本屋の奥の部屋に存在する。名前は『TOKYO SPEAKEASY』。 5月21日（火）のお客様は、OCTPATHより小堀柊さん栗田航兵さんと、お笑い芸人チョコレートプラネットさんがご来店！どんなトークが繰り広げられるのか…？ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://www.tfm.co.jp/speakeasy/&quot;&gt;https://www.tfm.co.jp/speakeasy/&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://www.tfm.co.jp/f/speakeasy/message&quot;&gt;https://www.tfm.co.jp/f/speakeasy/message&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23speakeasy&quot;&gt;#speakeasy&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/TokyoSpeakeasy&quot;&gt;@TokyoSpeakeasy&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>OCTPATH 小堀 柊 / OCTPATH 栗田 航兵 / チョコレートプラネット</pfm>
+					<img>https://program-static.cf.radiko.jp/eyam38d199.jpg</img>
+					<tag></tag>
+					<genre>
+						<personality id="C010">
+							<name>タレント</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9946000" master_id="" ft="20240522020000" to="20240522040000" ftl="2600" tol="2800" dur="7200">
+					<title>AuDee CONNECT</title>
+					<url>https://audee.jp/program/show/60610</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/a87f5215-d994-4735-a5a5-80fcbab987ac_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;緑仙&quot;&gt;&lt;/td&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/08148c05-0252-43a9-9692-a92a47d9b464_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;和田雅成&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	常に新たな創作やパフォーマンスを続けるパーソナリティたちと、敏感な感覚でそれをキャッチするリスナーが＜CONNECT＞して、新しいエンターテインメントを作り出す深夜カルチャーバラエティ番組『AuDee CONNECT』。 &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/60610&quot;&gt;https://audee.jp/program/show/60610&lt;/a&gt;&lt;br /&gt; &lt;br /&gt; Xハッシュタグは「&lt;a href=&quot;http://twitter.com/search?q=%23AuDeeCONNECT&quot;&gt;#AuDeeCONNECT&lt;/a&gt;」&lt;br /&gt; Xアカウントは「&lt;a href=&quot;http://twitter.com/AuDeeCONNECT&quot;&gt;@AuDeeCONNECT&lt;/a&gt;」&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>緑仙 / 和田雅成</pfm>
+					<img>https://program-static.cf.radiko.jp/r4ht97g21b.jpg</img>
+					<tag>
+						<item>
+							<name>狩野英孝</name>
+						</item>
+						<item>
+							<name>WhiteTails</name>
+						</item>
+						<item>
+							<name>緑仙</name>
+						</item>
+						<item>
+							<name>蓮見翔</name>
+						</item>
+						<item>
+							<name>ダウ90000</name>
+						</item>
+						<item>
+							<name>梅田サイファー</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C010">
+							<name>タレント</name>
+						</personality>
+						<program id="P007">
+							<name>トーク</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+				<prog id="9946001" master_id="" ft="20240522040000" to="20240522050000" ftl="2800" tol="2900" dur="3600">
+					<title>Memories＆Discoveries</title>
+					<url>https://audee.jp/program/show/27337</url>
+					<url_link></url_link>
+					<failed_record>0</failed_record>
+					<ts_in_ng>0</ts_in_ng>
+					<ts_out_ng>0</ts_out_ng>
+					<desc></desc>
+					<info>&lt;div class=&quot;station_content_description &quot;&gt;&lt;table border=&quot;0&quot; cellpadding=&quot;5&quot; &gt;  &lt;tr&gt;      &lt;td style=&quot;padding: 5px;&quot;&gt;&lt;img src=&quot;https://pms-next-prod-api-program.s3.ap-northeast-1.amazonaws.com/image/person/8adc510c-b729-4f1f-bdb4-fd8f627b6fba_sq.jpg&quot; height=&quot;60&quot; width=&quot;60&quot; alt=&quot;山田花子&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;&lt;/table&gt;&lt;br /&gt;&lt;br /&gt;	【28時台】&lt;br /&gt;◇Today&apos;s Playlist&lt;br /&gt;peeto・野田択也さんがセレクトする、&lt;br /&gt;「今日が少しだけゆったりとご機嫌になっていくプレイリスト」！&lt;br /&gt;&lt;br /&gt;【29時台】&lt;br /&gt;◇Classic Playlist&lt;br /&gt;クラシックライター・板倉重雄さんが&lt;br /&gt;「バレエ音楽の神様」というテーマで選曲。&lt;br /&gt;&lt;br /&gt;第一線で活躍するミュージシャン、著名クリエイター、文化人が、それぞれのリコメンド楽曲で素敵な音楽空間をプロデュース。懐かしさを感じるナンバー、新たな出会いとなるようなナンバー等、幅広い世代に、時代を超えた邦・洋楽の名曲をお届け！ &lt;br /&gt;&lt;br /&gt;	番組Webサイト：&lt;a href=&quot;https://audee.jp/program/show/27337&quot;&gt;https://audee.jp/program/show/27337&lt;/a&gt;&lt;br /&gt;	メッセージフォーム：&lt;a href=&quot;https://form.audee.jp/memories/message&quot;&gt;https://form.audee.jp/memories/message&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;</info>
+					<pfm>山田花子</pfm>
+					<img>https://program-static.cf.radiko.jp/acw23umv4n.jpg</img>
+					<tag>
+						<item>
+							<name>山田花子</name>
+						</item>
+						<item>
+							<name>人気声優出演</name>
+						</item>
+					</tag>
+					<genre>
+						<personality id="C006">
+							<name>女性声優</name>
+						</personality>
+						<program id="P005">
+							<name>音楽</name>
+						</program>
+					</genre>
+					<metas>
+						<meta name="twitter" value="#radiko" />
+					</metas>
+				</prog>
+
+			</progs>
+
+
+		</station>
+
+	</stations>
+</radiko>
+

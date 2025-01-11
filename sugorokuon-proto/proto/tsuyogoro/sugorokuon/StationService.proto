@@ -1,0 +1,21 @@
+syntax = "proto3";
+package tsuyogoro.sugorokuon;
+
+import "tsuyogoro/sugorokuon/Station.proto";
+import "tsuyogoro/sugorokuon/Region.proto";
+
+// GET /stations
+message GetStationResponse {
+  repeated Station stations = 1;
+}
+
+// GET /stations/region/{regionId}
+message GetStationsByRegionResponse {
+  Region region = 1;
+  repeated Station stations = 2;
+}
+
+// GET /stations/area/{areaId}
+message GetStationsByAreaResponse {
+  repeated Station stations = 1;
+}

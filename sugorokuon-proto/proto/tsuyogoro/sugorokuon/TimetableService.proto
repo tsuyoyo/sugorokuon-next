@@ -1,0 +1,27 @@
+syntax = "proto3";
+package tsuyogoro.sugorokuon;
+
+import "tsuyogoro/sugorokuon/Timetable.proto";
+import "tsuyogoro/sugorokuon/Region.proto";
+
+// GET /timetables
+message GetAllTimetablesResponse {
+  repeated Region regions = 1;
+  repeated Timetable timetables = 2;
+}
+
+// GET /timetables/region/{regionId} 
+message GetTimetablesByRegionResponse {
+  Region region = 1;
+  repeated Timetable timetables = 2;
+}
+
+// GET /timetables/area/{areaId}
+message GetTimetablesByAreaResponse {
+  repeated Timetable timetables = 1;
+}
+
+// GET /timetables/area/{areaId}/date/{date}
+message GetTimetablesByAreaAndDateResponse {
+  repeated Timetable timetables = 1;
+}
