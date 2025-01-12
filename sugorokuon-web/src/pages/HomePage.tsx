@@ -51,10 +51,16 @@ const formatTime = (timeStr: string) => {
   });
 };
 
+const EXPANDED_REGIONS_KEY = 'expandedRegions';
+
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
-  const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>({});
+  const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>(() => {
+    // localStorageから展開状態を復元
+    const saved = localStorage.getItem(EXPANDED_REGIONS_KEY);
+    return saved ? JSON.parse(saved) : {};
+  });
   const [dateError, setDateError] = useState<string | null>(null);
 
   const today = new Date();
@@ -87,7 +93,7 @@ const HomePage: React.FC = () => {
       const timetablesResponse = await apiClient.get<ApiResponse>(`/timetables/date/${dateStr}`);
       setTimetableData(timetablesResponse.data.regions);
 
-      // 初回のみ最初の地域を展開
+      // 初回のみ、保存された状態がない場合は最初の地域を展開
       if (Object.keys(expandedRegions).length === 0) {
         const initialExpanded = timetablesResponse.data.regions.reduce(
           (acc, region, index) => {
@@ -97,6 +103,7 @@ const HomePage: React.FC = () => {
           {} as { [key: string]: boolean },
         );
         setExpandedRegions(initialExpanded);
+        localStorage.setItem(EXPANDED_REGIONS_KEY, JSON.stringify(initialExpanded));
       }
     } catch (error) {
       console.error('Failed to fetch data:', error);
@@ -125,10 +132,15 @@ const HomePage: React.FC = () => {
   };
 
   const handleToggleRegion = (regionId: string) => {
-    setExpandedRegions((prev) => ({
-      ...prev,
-      [regionId]: !prev[regionId],
-    }));
+    setExpandedRegions((prev) => {
+      const newState = {
+        ...prev,
+        [regionId]: !prev[regionId],
+      };
+      // 状態をlocalStorageに保存
+      localStorage.setItem(EXPANDED_REGIONS_KEY, JSON.stringify(newState));
+      return newState;
+    });
   };
 
   const renderTimetablesByRegion = () => {
