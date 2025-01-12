@@ -38,17 +38,39 @@ interface ApiResponse {
 }
 
 const formatTime = (timeStr: string) => {
-  // YYYYMMDDHHmmss形式の文字列をDateオブジェクトに変換
-  const year = parseInt(timeStr.substring(0, 4), 10);
-  const month = parseInt(timeStr.substring(4, 6), 10) - 1;
-  const day = parseInt(timeStr.substring(6, 8), 10);
-  const hour = parseInt(timeStr.substring(8, 10), 10);
-  const minute = parseInt(timeStr.substring(10, 12), 10);
+  try {
+    // APIから返ってくる時刻をログ出力して確認
+    console.log('Time string:', timeStr);
 
-  return new Date(year, month, day, hour, minute).toLocaleTimeString('ja-JP', {
-    hour: '2-digit',
-    minute: '2-digit',
-  });
+    if (!timeStr) return '--:--';
+
+    // ISO 8601形式の場合（例：2024-01-10T15:30:00+09:00）
+    if (timeStr.includes('T')) {
+      return new Date(timeStr).toLocaleTimeString('ja-JP', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    }
+
+    // YYYYMMDDHHmmss形式の場合
+    if (timeStr.length === 14) {
+      const year = parseInt(timeStr.substring(0, 4), 10);
+      const month = parseInt(timeStr.substring(4, 6), 10) - 1;
+      const day = parseInt(timeStr.substring(6, 8), 10);
+      const hour = parseInt(timeStr.substring(8, 10), 10);
+      const minute = parseInt(timeStr.substring(10, 12), 10);
+
+      return new Date(year, month, day, hour, minute).toLocaleTimeString('ja-JP', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    }
+
+    return '--:--';
+  } catch (error) {
+    console.error('Error formatting time:', error, timeStr);
+    return '--:--';
+  }
 };
 
 const EXPANDED_REGIONS_KEY = 'expandedRegions';
@@ -210,17 +232,17 @@ const HomePage: React.FC = () => {
                         />
                       )}
                       <Typography
-                        variant="subtitle1"
-                        sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
-                      >
-                        {program.title}
-                      </Typography>
-                      <Typography
                         variant="body2"
                         color="text.secondary"
                         sx={{ fontSize: '0.7rem', mb: 0.5 }}
                       >
                         {formatTime(program.start_time)} - {formatTime(program.end_time)}
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
+                      >
+                        {program.title}
                       </Typography>
                       {program.personalities && (
                         <Typography
