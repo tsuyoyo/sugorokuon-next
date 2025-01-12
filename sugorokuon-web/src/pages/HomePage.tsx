@@ -9,6 +9,7 @@ import {
   Tabs,
   Tab,
   CircularProgress,
+  Drawer,
 } from '@mui/material';
 import { apiClient } from '../shared/api/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -16,6 +17,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { DatePicker } from '@mui/x-date-pickers';
 import { useSearchParams } from 'react-router-dom';
 import { format, parse, addDays, subDays, isWithinInterval } from 'date-fns';
+import CloseIcon from '@mui/icons-material/Close';
 
 // APIから返ってくる実際のデータ構造に合わせて型を定義
 interface Program {
@@ -61,6 +63,10 @@ interface Song {
     medium: string;
     small: string;
   };
+}
+
+interface ProgramWithStation extends Program {
+  stationName: string | null;
 }
 
 const formatTime = (timeStr: string) => {
@@ -114,9 +120,11 @@ const MemoizedStationTimetable = React.memo(
   ({
     stationTimetable,
     onScrollToCurrentProgram,
+    onProgramClick,
   }: {
     stationTimetable: StationTimetable;
     onScrollToCurrentProgram: (container: HTMLElement, programs: Program[]) => void;
+    onProgramClick: (program: Program, stationName: string | null) => void;
   }) => {
     return (
       <Box sx={{ mb: 2 }}>
@@ -145,11 +153,16 @@ const MemoizedStationTimetable = React.memo(
             <Paper
               key={`${stationTimetable.stationId}-${program.id}-${index}`}
               elevation={0}
+              onClick={() => onProgramClick(program, stationTimetable.stationName)}
               sx={{
                 minWidth: 140,
                 backgroundColor: 'grey.50',
                 p: 1,
                 borderRadius: 1,
+                cursor: 'pointer',
+                '&:hover': {
+                  backgroundColor: 'grey.100',
+                },
               }}
             >
               {program.image && (
@@ -198,11 +211,13 @@ const MemoizedRegion = React.memo(
     isExpanded,
     onToggle,
     onScrollToCurrentProgram,
+    onProgramClick,
   }: {
     region: RegionWithTimetables;
     isExpanded: boolean;
     onToggle: () => void;
     onScrollToCurrentProgram: (container: HTMLElement, programs: Program[]) => void;
+    onProgramClick: (program: Program, stationName: string | null) => void;
   }) => {
     return (
       <Paper sx={{ mb: 2, overflow: 'hidden' }}>
@@ -231,6 +246,7 @@ const MemoizedRegion = React.memo(
                 key={stationTimetable.stationId}
                 stationTimetable={stationTimetable}
                 onScrollToCurrentProgram={onScrollToCurrentProgram}
+                onProgramClick={onProgramClick}
               />
             ))}
           </Box>
@@ -239,6 +255,29 @@ const MemoizedRegion = React.memo(
     );
   },
 );
+
+const parseDescription = (text: string | null): string => {
+  if (!text) return '';
+
+  // XML headerとrootタグを削除
+  let parsed = text.replace(/<\?xml[^>]*\?>/, '').replace(/<\/?root>/g, '');
+
+  // HTMLエンティティをデコード
+  parsed = parsed
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&');
+
+  // <br>タグを改行に変換
+  parsed = parsed.replace(/<br\s*\/?>/gi, '\n');
+
+  // その他のHTMLタグを削除
+  parsed = parsed.replace(/<[^>]*>/g, '');
+
+  return parsed.trim();
+};
 
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -251,6 +290,7 @@ const HomePage: React.FC = () => {
   });
   const [dateError, setDateError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedProgram, setSelectedProgram] = useState<ProgramWithStation | null>(null);
 
   const today = new Date();
   const minDate = subDays(today, 7);
@@ -367,6 +407,7 @@ const HomePage: React.FC = () => {
         isExpanded={expandedRegions[region.id]}
         onToggle={() => handleToggleRegion(region.id)}
         onScrollToCurrentProgram={scrollToCurrentProgram}
+        onProgramClick={handleProgramClick}
       />
     ));
   };
@@ -401,6 +442,106 @@ const HomePage: React.FC = () => {
     setSelectedStationId(event.target.value);
     // 放送局変更時に即座にデータを更新
     fetchCurrentSongs();
+  };
+
+  const handleProgramClick = (program: Program, stationName: string | null) => {
+    setSelectedProgram({ ...program, stationName });
+  };
+
+  const handleCloseDrawer = () => {
+    setSelectedProgram(null);
+  };
+
+  const renderProgramDetail = () => {
+    if (!selectedProgram) return null;
+
+    // メールリンクを抽出
+    const emailMatch = selectedProgram.desc?.match(/mailto:([^"'>]+)/);
+    const emailAddress = emailMatch ? emailMatch[1] : null;
+
+    return (
+      <Box sx={{ width: '40vw', minWidth: 400, maxWidth: 800, p: 3 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+            番組詳細
+          </Typography>
+          <IconButton onClick={handleCloseDrawer} size="small">
+            <CloseIcon />
+          </IconButton>
+        </Box>
+
+        {selectedProgram.image && (
+          <Box
+            component="img"
+            src={selectedProgram.image}
+            alt={selectedProgram.title}
+            sx={{
+              width: '100%',
+              height: 240,
+              objectFit: 'cover',
+              borderRadius: 1,
+              mb: 2,
+            }}
+          />
+        )}
+
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: 'bold' }}>
+          {selectedProgram.title}
+        </Typography>
+
+        <Typography variant="subtitle1" sx={{ mb: 2, fontFamily: 'monospace', fontWeight: 500 }}>
+          {formatTime(selectedProgram.start_time)} - {formatTime(selectedProgram.end_time)}
+        </Typography>
+
+        {selectedProgram.stationName && (
+          <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 500 }}>
+            {selectedProgram.stationName}
+          </Typography>
+        )}
+
+        {selectedProgram.personalities && (
+          <Typography variant="body1" sx={{ mb: 2, lineHeight: 1.6, letterSpacing: 0.5 }}>
+            {selectedProgram.personalities}
+          </Typography>
+        )}
+
+        {selectedProgram.desc && (
+          <Typography
+            variant="body1"
+            sx={{ mb: 2, lineHeight: 1.6, letterSpacing: 0.5, whiteSpace: 'pre-line' }}
+          >
+            {parseDescription(selectedProgram.desc)}
+          </Typography>
+        )}
+
+        {selectedProgram.info && (
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2, whiteSpace: 'pre-line' }}>
+            {parseDescription(selectedProgram.info)}
+          </Typography>
+        )}
+
+        {selectedProgram.url && (
+          <Typography variant="body2" sx={{ mb: 2 }}>
+            <a
+              href={selectedProgram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'inherit' }}
+            >
+              番組ページを開く
+            </a>
+          </Typography>
+        )}
+
+        {emailAddress && (
+          <Typography variant="body2" sx={{ mt: 2 }}>
+            <a href={`mailto:${emailAddress}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+              {emailAddress}
+            </a>
+          </Typography>
+        )}
+      </Box>
+    );
   };
 
   const renderCurrentSongs = () => {
@@ -614,6 +755,10 @@ const HomePage: React.FC = () => {
           )}
         </Box>
       )}
+
+      <Drawer anchor="right" open={selectedProgram !== null} onClose={handleCloseDrawer}>
+        {renderProgramDetail()}
+      </Drawer>
     </Box>
   );
 };
