@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Paper, IconButton, Collapse, Alert } from '@mui/material';
+import { Box, Typography, Paper, IconButton, Collapse, Alert, Tabs, Tab } from '@mui/material';
 import { apiClient } from '../shared/api/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -37,10 +37,26 @@ interface ApiResponse {
   regions: RegionWithTimetables[];
 }
 
+interface Song {
+  title: string;
+  onAirTime: string;
+  artist: {
+    id: string;
+    name: string;
+    nameEn?: string;
+    nameKana?: string;
+  };
+  thumbnails: {
+    large: string;
+    medium: string;
+    small: string;
+  };
+}
+
 const formatTime = (timeStr: string) => {
   try {
     // APIから返ってくる時刻をログ出力して確認
-    console.log('Time string:', timeStr);
+    // console.log('Time string:', timeStr);
 
     if (!timeStr) return '--:--';
 
@@ -87,6 +103,7 @@ const findCurrentProgramIndex = (programs: Program[]): number => {
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
+  const [currentSongs, setCurrentSongs] = useState<Song[]>([]);
   const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>(() => {
     // localStorageから展開状態を復元
     const saved = localStorage.getItem(EXPANDED_REGIONS_KEY);
@@ -103,9 +120,17 @@ const HomePage: React.FC = () => {
     ? parse(searchParams.get('date')!, 'yyyyMMdd', new Date())
     : today;
 
+  // タブの初期値を取得
+  const initialTab = searchParams.get('tab') === 'onair' ? 1 : 0;
+  const [tabValue, setTabValue] = useState(initialTab);
+
   // 日付が範囲内かチェック
   const isDateValid = isWithinInterval(initialDate, { start: minDate, end: maxDate });
   const [selectedDate, setSelectedDate] = useState<Date>(isDateValid ? initialDate : today);
+
+  // 放送局の初期値を取得
+  const initialStationId = searchParams.get('station') || 'FMT';
+  const [selectedStationId, setSelectedStationId] = useState(initialStationId);
 
   useEffect(() => {
     if (!isDateValid) {
@@ -148,8 +173,13 @@ const HomePage: React.FC = () => {
   // URLのクエリパラメータと同期
   useEffect(() => {
     const dateStr = format(selectedDate, 'yyyyMMdd');
-    setSearchParams({ date: dateStr });
-  }, [selectedDate, setSearchParams]);
+    const tabStr = tabValue === 1 ? 'onair' : 'program';
+    const params: { date: string; tab: string; station?: string } = { date: dateStr, tab: tabStr };
+    if (tabValue === 1) {
+      params.station = selectedStationId;
+    }
+    setSearchParams(params);
+  }, [selectedDate, tabValue, selectedStationId, setSearchParams]);
 
   const handleDateChange = (newDate: Date | null) => {
     if (newDate) {
@@ -289,30 +319,161 @@ const HomePage: React.FC = () => {
     ));
   };
 
-  return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ mb: 3 }}>
-        <DatePicker
-          label="日付を選択"
-          value={selectedDate}
-          onChange={handleDateChange}
-          format="yyyy/MM/dd"
-          minDate={minDate}
-          maxDate={maxDate}
-          slotProps={{
-            textField: {
-              size: 'small',
-              sx: { width: 200 },
-            },
-          }}
-        />
-        {dateError && (
-          <Alert severity="error" sx={{ mt: 2 }}>
-            {dateError}
-          </Alert>
+  const fetchCurrentSongs = async () => {
+    try {
+      // データをフェッチする前に現在の曲リストをクリア
+      setCurrentSongs([]);
+      const response = await apiClient.get<Song[]>(`/songs/onair/${selectedStationId}`);
+      if (response.data) {
+        setCurrentSongs(response.data);
+      }
+    } catch (error) {
+      console.error('Failed to fetch current songs:', error);
+      setCurrentSongs([]);
+    }
+  };
+
+  useEffect(() => {
+    if (tabValue === 1) {
+      fetchCurrentSongs();
+    }
+  }, [tabValue, selectedStationId]);
+
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number) => {
+    setTabValue(newValue);
+  };
+
+  const handleStationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedStationId(event.target.value);
+    // 放送局変更時に即座にデータを更新
+    fetchCurrentSongs();
+  };
+
+  const renderCurrentSongs = () => {
+    return (
+      <Box sx={{ p: 2 }}>
+        {/* 放送局選択プルダウン */}
+        <Box sx={{ mb: 3 }}>
+          <select
+            value={selectedStationId}
+            onChange={handleStationChange}
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #ccc',
+              width: '200px',
+              fontSize: '14px',
+            }}
+          >
+            {timetableData.flatMap((region) =>
+              region.stations.map((station) => (
+                <option key={station.stationId} value={station.stationId}>
+                  {station.stationName || '放送局名なし'}
+                </option>
+              )),
+            )}
+          </select>
+        </Box>
+
+        {/* 曲リスト */}
+        {currentSongs.length === 0 ? (
+          <Typography variant="body1" color="text.secondary">
+            現在オンエア中の曲はありません
+          </Typography>
+        ) : (
+          currentSongs.map((song) => (
+            <Paper
+              key={`${song.artist.id}-${song.title}-${song.onAirTime}`}
+              elevation={1}
+              sx={{ p: 2, mb: 2 }}
+            >
+              <Box sx={{ display: 'flex', gap: 2 }}>
+                <Box
+                  component="img"
+                  src={
+                    song.thumbnails.large.includes('jacket_placeholder')
+                      ? '/default-song.svg'
+                      : song.thumbnails.large
+                  }
+                  alt={song.title}
+                  sx={{
+                    width: 84,
+                    height: 84,
+                    objectFit: 'cover',
+                    borderRadius: 1,
+                  }}
+                />
+
+                <Box sx={{ flexGrow: 1 }}>
+                  <Typography variant="h6" sx={{ mb: 1, fontSize: '1rem' }}>
+                    {song.title}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    color="text.secondary"
+                    sx={{ mb: 1, fontSize: '0.9rem' }}
+                  >
+                    {song.artist.name}
+                    {song.artist.nameKana && (
+                      <Typography
+                        component="span"
+                        variant="body2"
+                        color="text.secondary"
+                        sx={{ ml: 1, fontSize: '0.8rem' }}
+                      >
+                        ({song.artist.nameKana})
+                      </Typography>
+                    )}
+                  </Typography>
+
+                  <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
+                    OnAir: {formatTime(song.onAirTime)}
+                  </Typography>
+                </Box>
+              </Box>
+            </Paper>
+          ))
         )}
       </Box>
-      {renderTimetablesByRegion()}
+    );
+  };
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <Tabs value={tabValue} onChange={handleTabChange} sx={{ mb: 3 }}>
+        <Tab label="番組表" />
+        <Tab label="オンエア中の曲" />
+      </Tabs>
+
+      {tabValue === 0 && (
+        <>
+          <Box sx={{ mb: 3 }}>
+            <DatePicker
+              label="日付を選択"
+              value={selectedDate}
+              onChange={handleDateChange}
+              format="yyyy/MM/dd"
+              minDate={minDate}
+              maxDate={maxDate}
+              slotProps={{
+                textField: {
+                  size: 'small',
+                  sx: { width: 200 },
+                },
+              }}
+            />
+            {dateError && (
+              <Alert severity="error" sx={{ mt: 2 }}>
+                {dateError}
+              </Alert>
+            )}
+          </Box>
+          {renderTimetablesByRegion()}
+        </>
+      )}
+
+      {tabValue === 1 && renderCurrentSongs()}
     </Box>
   );
 };

@@ -49,7 +49,7 @@ export class RadikoApiService {
 
   async getOnAirSongs(
     stationId: string,
-    size: number = 10,
+    size: number = 20,
   ): Promise<Array<Song>> {
     const url = `${this.URL_API_BASE}/music/api/v1/noas/${stationId}/latest?size=${size}`;
     this.logger.debug(`Fetching songs from: ${url}`);
