@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Paper, IconButton, Collapse, Alert, Tabs, Tab } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Paper,
+  IconButton,
+  Collapse,
+  Alert,
+  Tabs,
+  Tab,
+  CircularProgress,
+} from '@mui/material';
 import { apiClient } from '../shared/api/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
@@ -100,6 +110,136 @@ const findCurrentProgramIndex = (programs: Program[]): number => {
   });
 };
 
+const MemoizedStationTimetable = React.memo(
+  ({
+    stationTimetable,
+    onScrollToCurrentProgram,
+  }: {
+    stationTimetable: StationTimetable;
+    onScrollToCurrentProgram: (container: HTMLElement, programs: Program[]) => void;
+  }) => {
+    return (
+      <Box sx={{ mb: 2 }}>
+        <Typography variant="subtitle1" sx={{ mb: 1 }}>
+          {stationTimetable.stationName || '放送局名なし'}
+        </Typography>
+        <Box
+          ref={(el) => {
+            if (el instanceof HTMLElement) {
+              onScrollToCurrentProgram(el, stationTimetable.programs);
+            }
+          }}
+          sx={{
+            display: 'flex',
+            gap: 1.5,
+            overflowX: 'auto',
+            pb: 1,
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+            msOverflowStyle: 'none',
+            scrollbarWidth: 'none',
+          }}
+        >
+          {stationTimetable.programs.map((program: Program, index: number) => (
+            <Paper
+              key={`${stationTimetable.stationId}-${program.id}-${index}`}
+              elevation={0}
+              sx={{
+                minWidth: 140,
+                backgroundColor: 'grey.50',
+                p: 1,
+                borderRadius: 1,
+              }}
+            >
+              {program.image && (
+                <Box
+                  component="img"
+                  src={program.image}
+                  alt={program.title}
+                  sx={{
+                    width: '100%',
+                    height: 84,
+                    objectFit: 'cover',
+                    borderRadius: 0.5,
+                    mb: 0.5,
+                  }}
+                />
+              )}
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontSize: '0.7rem', mb: 0.5 }}
+              >
+                {formatTime(program.start_time)} - {formatTime(program.end_time)}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
+              >
+                {program.title}
+              </Typography>
+              {program.personalities && (
+                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
+                  {program.personalities}
+                </Typography>
+              )}
+            </Paper>
+          ))}
+        </Box>
+      </Box>
+    );
+  },
+);
+
+const MemoizedRegion = React.memo(
+  ({
+    region,
+    isExpanded,
+    onToggle,
+    onScrollToCurrentProgram,
+  }: {
+    region: RegionWithTimetables;
+    isExpanded: boolean;
+    onToggle: () => void;
+    onScrollToCurrentProgram: (container: HTMLElement, programs: Program[]) => void;
+  }) => {
+    return (
+      <Paper sx={{ mb: 2, overflow: 'hidden' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            p: 2,
+            cursor: 'pointer',
+            bgcolor: 'grey.100',
+          }}
+          onClick={onToggle}
+        >
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            {region.name}
+          </Typography>
+          <IconButton size="small">
+            {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </IconButton>
+        </Box>
+
+        <Collapse in={isExpanded} timeout={150}>
+          <Box sx={{ p: 2 }}>
+            {region.stations.map((stationTimetable) => (
+              <MemoizedStationTimetable
+                key={stationTimetable.stationId}
+                stationTimetable={stationTimetable}
+                onScrollToCurrentProgram={onScrollToCurrentProgram}
+              />
+            ))}
+          </Box>
+        </Collapse>
+      </Paper>
+    );
+  },
+);
+
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
@@ -110,6 +250,7 @@ const HomePage: React.FC = () => {
     return saved ? JSON.parse(saved) : {};
   });
   const [dateError, setDateError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const today = new Date();
   const minDate = subDays(today, 7);
@@ -144,6 +285,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   const fetchTimetables = async (date: Date) => {
+    setIsLoading(true);
     try {
       const dateStr = format(date, 'yyyyMMdd');
       const timetablesResponse = await apiClient.get<ApiResponse>(`/timetables/date/${dateStr}`);
@@ -163,6 +305,8 @@ const HomePage: React.FC = () => {
       }
     } catch (error) {
       console.error('Failed to fetch data:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -217,111 +361,19 @@ const HomePage: React.FC = () => {
 
   const renderTimetablesByRegion = () => {
     return timetableData.map((region) => (
-      <Paper key={region.id} sx={{ mb: 2, overflow: 'hidden' }}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            p: 2,
-            cursor: 'pointer',
-            bgcolor: 'grey.100',
-          }}
-          onClick={() => handleToggleRegion(region.id)}
-        >
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            {region.name}
-          </Typography>
-          <IconButton size="small">
-            {expandedRegions[region.id] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          </IconButton>
-        </Box>
-
-        <Collapse in={expandedRegions[region.id]}>
-          <Box sx={{ p: 2 }}>
-            {region.stations.map((stationTimetable) => (
-              <Box key={stationTimetable.stationId} sx={{ mb: 2 }}>
-                <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                  {stationTimetable.stationName || '放送局名なし'}
-                </Typography>
-                <Box
-                  ref={(el) => {
-                    if (el instanceof HTMLElement) {
-                      scrollToCurrentProgram(el, stationTimetable.programs);
-                    }
-                  }}
-                  sx={{
-                    display: 'flex',
-                    gap: 1.5,
-                    overflowX: 'auto',
-                    pb: 1,
-                    '&::-webkit-scrollbar': {
-                      display: 'none',
-                    },
-                    msOverflowStyle: 'none',
-                    scrollbarWidth: 'none',
-                  }}
-                >
-                  {stationTimetable.programs.map((program: Program, index: number) => (
-                    <Paper
-                      key={`${stationTimetable.stationId}-${program.id}-${index}`}
-                      elevation={0}
-                      sx={{
-                        minWidth: 140,
-                        backgroundColor: 'grey.50',
-                        p: 1,
-                        borderRadius: 1,
-                      }}
-                    >
-                      {program.image && (
-                        <Box
-                          component="img"
-                          src={program.image}
-                          alt={program.title}
-                          sx={{
-                            width: '100%',
-                            height: 84,
-                            objectFit: 'cover',
-                            borderRadius: 0.5,
-                            mb: 0.5,
-                          }}
-                        />
-                      )}
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{ fontSize: '0.7rem', mb: 0.5 }}
-                      >
-                        {formatTime(program.start_time)} - {formatTime(program.end_time)}
-                      </Typography>
-                      <Typography
-                        variant="subtitle1"
-                        sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
-                      >
-                        {program.title}
-                      </Typography>
-                      {program.personalities && (
-                        <Typography
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ fontSize: '0.7rem' }}
-                        >
-                          {program.personalities}
-                        </Typography>
-                      )}
-                    </Paper>
-                  ))}
-                </Box>
-              </Box>
-            ))}
-          </Box>
-        </Collapse>
-      </Paper>
+      <MemoizedRegion
+        key={region.id}
+        region={region}
+        isExpanded={expandedRegions[region.id]}
+        onToggle={() => handleToggleRegion(region.id)}
+        onScrollToCurrentProgram={scrollToCurrentProgram}
+      />
     ));
   };
 
   const fetchCurrentSongs = async () => {
+    setIsLoading(true);
     try {
-      // データをフェッチする前に現在の曲リストをクリア
       setCurrentSongs([]);
       const response = await apiClient.get<Song[]>(`/songs/onair/${selectedStationId}`);
       if (response.data) {
@@ -330,6 +382,8 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error('Failed to fetch current songs:', error);
       setCurrentSongs([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -448,7 +502,7 @@ const HomePage: React.FC = () => {
 
       {tabValue === 0 && (
         <>
-          <Box sx={{ mb: 3 }}>
+          <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
             <DatePicker
               label="日付を選択"
               value={selectedDate}
@@ -463,6 +517,7 @@ const HomePage: React.FC = () => {
                 },
               }}
             />
+            {isLoading && <CircularProgress size={20} />}
             {dateError && (
               <Alert severity="error" sx={{ mt: 2 }}>
                 {dateError}
@@ -473,7 +528,92 @@ const HomePage: React.FC = () => {
         </>
       )}
 
-      {tabValue === 1 && renderCurrentSongs()}
+      {tabValue === 1 && (
+        <Box sx={{ p: 2 }}>
+          <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
+            <select
+              value={selectedStationId}
+              onChange={handleStationChange}
+              style={{
+                padding: '8px',
+                borderRadius: '4px',
+                border: '1px solid #ccc',
+                width: '200px',
+                fontSize: '14px',
+              }}
+            >
+              {timetableData.flatMap((region) =>
+                region.stations.map((station) => (
+                  <option key={station.stationId} value={station.stationId}>
+                    {station.stationName || '放送局名なし'}
+                  </option>
+                )),
+              )}
+            </select>
+            {isLoading && <CircularProgress size={20} />}
+          </Box>
+          {/* 曲リスト */}
+          {currentSongs.length === 0 ? (
+            <Typography variant="body1" color="text.secondary">
+              現在オンエア中の曲はありません
+            </Typography>
+          ) : (
+            currentSongs.map((song) => (
+              <Paper
+                key={`${song.artist.id}-${song.title}-${song.onAirTime}`}
+                elevation={1}
+                sx={{ p: 2, mb: 2 }}
+              >
+                <Box sx={{ display: 'flex', gap: 2 }}>
+                  <Box
+                    component="img"
+                    src={
+                      song.thumbnails.large.includes('jacket_placeholder')
+                        ? '/default-song.svg'
+                        : song.thumbnails.large
+                    }
+                    alt={song.title}
+                    sx={{
+                      width: 84,
+                      height: 84,
+                      objectFit: 'cover',
+                      borderRadius: 1,
+                    }}
+                  />
+
+                  <Box sx={{ flexGrow: 1 }}>
+                    <Typography variant="h6" sx={{ mb: 1, fontSize: '1rem' }}>
+                      {song.title}
+                    </Typography>
+
+                    <Typography
+                      variant="body1"
+                      color="text.secondary"
+                      sx={{ mb: 1, fontSize: '0.9rem' }}
+                    >
+                      {song.artist.name}
+                      {song.artist.nameKana && (
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          color="text.secondary"
+                          sx={{ ml: 1, fontSize: '0.8rem' }}
+                        >
+                          ({song.artist.nameKana})
+                        </Typography>
+                      )}
+                    </Typography>
+
+                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
+                      OnAir: {formatTime(song.onAirTime)}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Paper>
+            ))
+          )}
+        </Box>
+      )}
     </Box>
   );
 };
