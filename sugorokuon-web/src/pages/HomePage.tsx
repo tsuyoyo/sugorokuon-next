@@ -122,11 +122,11 @@ const MemoizedStationTimetable = React.memo(
     onProgramClick: (program: Program, stationName: string | null) => void;
   }) => {
     return (
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ mb: 2 }}>
         <Typography
           variant="subtitle1"
           sx={{
-            mb: 2,
+            mb: 1,
             fontWeight: 500,
             color: 'text.primary',
             letterSpacing: '0.02em',
@@ -142,9 +142,11 @@ const MemoizedStationTimetable = React.memo(
           }}
           sx={{
             display: 'flex',
-            gap: 2,
+            gap: 1,
             overflowX: 'auto',
             pb: 1,
+            pt: 1.5,
+            px: 1,
             '&::-webkit-scrollbar': {
               display: 'none',
             },
@@ -166,10 +168,11 @@ const MemoizedStationTimetable = React.memo(
                 transition: 'all 0.2s ease-in-out',
                 border: '1px solid',
                 borderColor: 'divider',
+                position: 'relative',
                 '&:hover': {
-                  transform: 'translateY(-2px)',
                   boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                   borderColor: 'primary.main',
+                  transform: 'scale(1.02)',
                 },
               }}
             >
@@ -252,7 +255,8 @@ const MemoizedRegion = React.memo(
         <Typography
           variant="h6"
           sx={{
-            mb: 3,
+            mb: 2,
+            mt: 2,
             fontSize: '1.1rem',
             fontWeight: 600,
             letterSpacing: '0.02em',
