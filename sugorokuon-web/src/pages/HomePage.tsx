@@ -4,7 +4,6 @@ import {
   Typography,
   Paper,
   IconButton,
-  Collapse,
   Alert,
   Tabs,
   Tab,
@@ -12,8 +11,6 @@ import {
   Drawer,
 } from '@mui/material';
 import { apiClient } from '../shared/api/client';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { DatePicker } from '@mui/x-date-pickers';
 import { useSearchParams } from 'react-router-dom';
 import { format, parse, addDays, subDays, isWithinInterval } from 'date-fns';
@@ -105,8 +102,6 @@ const formatTime = (timeStr: string) => {
   }
 };
 
-const EXPANDED_REGIONS_KEY = 'expandedRegions';
-
 const findCurrentProgramIndex = (programs: Program[]): number => {
   const now = new Date();
   return programs.findIndex((program) => {
@@ -127,8 +122,16 @@ const MemoizedStationTimetable = React.memo(
     onProgramClick: (program: Program, stationName: string | null) => void;
   }) => {
     return (
-      <Box sx={{ mb: 2 }}>
-        <Typography variant="subtitle1" sx={{ mb: 1 }}>
+      <Box sx={{ mb: 3 }}>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            mb: 2,
+            fontWeight: 500,
+            color: 'text.primary',
+            letterSpacing: '0.02em',
+          }}
+        >
           {stationTimetable.stationName || '放送局名なし'}
         </Typography>
         <Box
@@ -139,7 +142,7 @@ const MemoizedStationTimetable = React.memo(
           }}
           sx={{
             display: 'flex',
-            gap: 1.5,
+            gap: 2,
             overflowX: 'auto',
             pb: 1,
             '&::-webkit-scrollbar': {
@@ -156,12 +159,17 @@ const MemoizedStationTimetable = React.memo(
               onClick={() => onProgramClick(program, stationTimetable.stationName)}
               sx={{
                 minWidth: 140,
-                backgroundColor: 'grey.50',
-                p: 1,
-                borderRadius: 1,
+                backgroundColor: 'background.paper',
+                p: 1.5,
+                borderRadius: 2,
                 cursor: 'pointer',
+                transition: 'all 0.2s ease-in-out',
+                border: '1px solid',
+                borderColor: 'divider',
                 '&:hover': {
-                  backgroundColor: 'grey.100',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  borderColor: 'primary.main',
                 },
               }}
             >
@@ -174,26 +182,50 @@ const MemoizedStationTimetable = React.memo(
                     width: '100%',
                     height: 84,
                     objectFit: 'cover',
-                    borderRadius: 0.5,
-                    mb: 0.5,
+                    borderRadius: 1.5,
+                    mb: 1,
                   }}
                 />
               )}
               <Typography
                 variant="body2"
-                color="text.secondary"
-                sx={{ fontSize: '0.7rem', mb: 0.5 }}
+                color="primary.main"
+                sx={{
+                  fontSize: '0.75rem',
+                  mb: 0.5,
+                  fontFamily: 'monospace',
+                  fontWeight: 500,
+                }}
               >
                 {formatTime(program.start_time)} - {formatTime(program.end_time)}
               </Typography>
               <Typography
                 variant="subtitle1"
-                sx={{ fontSize: '0.75rem', fontWeight: 'bold', mb: 0.5 }}
+                sx={{
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  mb: 0.5,
+                  lineHeight: 1.3,
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}
               >
                 {program.title}
               </Typography>
               {program.personalities && (
-                <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.7rem' }}>
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    fontSize: '0.75rem',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 1,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                  }}
+                >
                   {program.personalities}
                 </Typography>
               )}
@@ -208,50 +240,39 @@ const MemoizedStationTimetable = React.memo(
 const MemoizedRegion = React.memo(
   ({
     region,
-    isExpanded,
-    onToggle,
     onScrollToCurrentProgram,
     onProgramClick,
   }: {
     region: RegionWithTimetables;
-    isExpanded: boolean;
-    onToggle: () => void;
     onScrollToCurrentProgram: (container: HTMLElement, programs: Program[]) => void;
     onProgramClick: (program: Program, stationName: string | null) => void;
   }) => {
     return (
-      <Paper sx={{ mb: 2, overflow: 'hidden' }}>
-        <Box
+      <Box sx={{ mb: 4 }}>
+        <Typography
+          variant="h6"
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            p: 2,
-            cursor: 'pointer',
-            bgcolor: 'grey.100',
+            mb: 3,
+            fontSize: '1.1rem',
+            fontWeight: 600,
+            letterSpacing: '0.02em',
+            color: 'text.primary',
           }}
-          onClick={onToggle}
         >
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            {region.name}
-          </Typography>
-          <IconButton size="small">
-            {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          </IconButton>
-        </Box>
+          {region.name}
+        </Typography>
 
-        <Collapse in={isExpanded} timeout={150}>
-          <Box sx={{ p: 2 }}>
-            {region.stations.map((stationTimetable) => (
-              <MemoizedStationTimetable
-                key={stationTimetable.stationId}
-                stationTimetable={stationTimetable}
-                onScrollToCurrentProgram={onScrollToCurrentProgram}
-                onProgramClick={onProgramClick}
-              />
-            ))}
-          </Box>
-        </Collapse>
-      </Paper>
+        <Box sx={{ pl: 1 }}>
+          {region.stations.map((stationTimetable) => (
+            <MemoizedStationTimetable
+              key={stationTimetable.stationId}
+              stationTimetable={stationTimetable}
+              onScrollToCurrentProgram={onScrollToCurrentProgram}
+              onProgramClick={onProgramClick}
+            />
+          ))}
+        </Box>
+      </Box>
     );
   },
 );
@@ -283,11 +304,6 @@ const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
   const [currentSongs, setCurrentSongs] = useState<Song[]>([]);
-  const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>(() => {
-    // localStorageから展開状態を復元
-    const saved = localStorage.getItem(EXPANDED_REGIONS_KEY);
-    return saved ? JSON.parse(saved) : {};
-  });
   const [dateError, setDateError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState<ProgramWithStation | null>(null);
@@ -330,19 +346,6 @@ const HomePage: React.FC = () => {
       const dateStr = format(date, 'yyyyMMdd');
       const timetablesResponse = await apiClient.get<ApiResponse>(`/timetables/date/${dateStr}`);
       setTimetableData(timetablesResponse.data.regions);
-
-      // 初回のみ、保存された状態がない場合は最初の地域を展開
-      if (Object.keys(expandedRegions).length === 0) {
-        const initialExpanded = timetablesResponse.data.regions.reduce(
-          (acc, region, index) => {
-            acc[region.id] = index === 0;
-            return acc;
-          },
-          {} as { [key: string]: boolean },
-        );
-        setExpandedRegions(initialExpanded);
-        localStorage.setItem(EXPANDED_REGIONS_KEY, JSON.stringify(initialExpanded));
-      }
     } catch (error) {
       console.error('Failed to fetch data:', error);
     } finally {
@@ -376,18 +379,6 @@ const HomePage: React.FC = () => {
     }
   };
 
-  const handleToggleRegion = (regionId: string) => {
-    setExpandedRegions((prev) => {
-      const newState = {
-        ...prev,
-        [regionId]: !prev[regionId],
-      };
-      // 状態をlocalStorageに保存
-      localStorage.setItem(EXPANDED_REGIONS_KEY, JSON.stringify(newState));
-      return newState;
-    });
-  };
-
   // 番組表のスクロール位置を設定する関数
   const scrollToCurrentProgram = (container: HTMLElement, programs: Program[]) => {
     const currentIndex = findCurrentProgramIndex(programs);
@@ -397,19 +388,6 @@ const HomePage: React.FC = () => {
       const scrollPosition = (cardWidth + gap) * currentIndex;
       container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
     }
-  };
-
-  const renderTimetablesByRegion = () => {
-    return timetableData.map((region) => (
-      <MemoizedRegion
-        key={region.id}
-        region={region}
-        isExpanded={expandedRegions[region.id]}
-        onToggle={() => handleToggleRegion(region.id)}
-        onScrollToCurrentProgram={scrollToCurrentProgram}
-        onProgramClick={handleProgramClick}
-      />
-    ));
   };
 
   const fetchCurrentSongs = async () => {
@@ -635,15 +613,28 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Tabs value={tabValue} onChange={handleTabChange} sx={{ mb: 3 }}>
-        <Tab label="番組表" />
-        <Tab label="オンエア中の曲" />
-      </Tabs>
+    <Box sx={{ height: '100vh' }}>
+      {/* 固定ヘッダー部分 */}
+      <Box
+        sx={{
+          position: 'sticky',
+          top: 0,
+          bgcolor: 'background.default',
+          zIndex: 1000,
+          borderBottom: '1px solid',
+          borderColor: 'divider',
+          pt: 2,
+          pb: 2,
+          px: 3,
+        }}
+      >
+        <Tabs value={tabValue} onChange={handleTabChange} sx={{ mb: 2 }}>
+          <Tab label="番組表" />
+          <Tab label="オンエア中の曲" />
+        </Tabs>
 
-      {tabValue === 0 && (
-        <>
-          <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
+        {tabValue === 0 && (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <DatePicker
               label="日付を選択"
               value={selectedDate}
@@ -665,96 +656,83 @@ const HomePage: React.FC = () => {
               </Alert>
             )}
           </Box>
-          {renderTimetablesByRegion()}
-        </>
-      )}
+        )}
+      </Box>
 
-      {tabValue === 1 && (
-        <Box sx={{ p: 2 }}>
-          <Box sx={{ mb: 3, display: 'flex', alignItems: 'center', gap: 2 }}>
-            <select
-              value={selectedStationId}
-              onChange={handleStationChange}
-              style={{
-                padding: '8px',
-                borderRadius: '4px',
-                border: '1px solid #ccc',
-                width: '200px',
-                fontSize: '14px',
-              }}
-            >
-              {timetableData.flatMap((region) =>
-                region.stations.map((station) => (
-                  <option key={station.stationId} value={station.stationId}>
-                    {station.stationName || '放送局名なし'}
-                  </option>
-                )),
-              )}
-            </select>
-            {isLoading && <CircularProgress size={20} />}
-          </Box>
-          {/* 曲リスト */}
-          {currentSongs.length === 0 ? (
-            <Typography variant="body1" color="text.secondary">
-              現在オンエア中の曲はありません
-            </Typography>
-          ) : (
-            currentSongs.map((song) => (
-              <Paper
-                key={`${song.artist.id}-${song.title}-${song.onAirTime}`}
-                elevation={1}
-                sx={{ p: 2, mb: 2 }}
+      {/* メインコンテンツ */}
+      <Box sx={{ display: 'flex', height: 'calc(100vh - 140px)' }}>
+        {/* 地域ナビゲーション */}
+        {tabValue === 0 && (
+          <Box
+            sx={{
+              position: 'sticky',
+              top: 140,
+              width: 500,
+              height: 'fit-content',
+              pr: 2,
+              pl: 3,
+              borderRight: '1px solid',
+              borderColor: 'divider',
+            }}
+          >
+            {timetableData.map((region) => (
+              <Box
+                key={region.id}
+                onClick={() => {
+                  const element = document.getElementById(`region-${region.id}`);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                sx={{
+                  py: 1.5,
+                  px: 2,
+                  cursor: 'pointer',
+                  borderRadius: 1,
+                  '&:hover': {
+                    bgcolor: 'action.hover',
+                  },
+                }}
               >
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  <Box
-                    component="img"
-                    src={
-                      song.thumbnails.large.includes('jacket_placeholder')
-                        ? '/default-song.svg'
-                        : song.thumbnails.large
-                    }
-                    alt={song.title}
-                    sx={{
-                      width: 84,
-                      height: 84,
-                      objectFit: 'cover',
-                      borderRadius: 1,
-                    }}
-                  />
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    fontSize: '1.1rem',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {region.name}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        )}
 
-                  <Box sx={{ flexGrow: 1 }}>
-                    <Typography variant="h6" sx={{ mb: 1, fontSize: '1rem' }}>
-                      {song.title}
-                    </Typography>
-
-                    <Typography
-                      variant="body1"
-                      color="text.secondary"
-                      sx={{ mb: 1, fontSize: '0.9rem' }}
-                    >
-                      {song.artist.name}
-                      {song.artist.nameKana && (
-                        <Typography
-                          component="span"
-                          variant="body2"
-                          color="text.secondary"
-                          sx={{ ml: 1, fontSize: '0.8rem' }}
-                        >
-                          ({song.artist.nameKana})
-                        </Typography>
-                      )}
-                    </Typography>
-
-                    <Typography variant="body2" color="text.secondary" sx={{ fontSize: '0.8rem' }}>
-                      OnAir: {formatTime(song.onAirTime)}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Paper>
+        {/* プログラムリストまたは曲リスト */}
+        <Box
+          sx={{
+            flexGrow: 1,
+            pl: tabValue === 0 ? 2 : 3,
+            pr: 3,
+            overflowY: 'auto',
+            height: '100%',
+          }}
+        >
+          {tabValue === 0 ? (
+            timetableData.map((region) => (
+              <Box key={region.id} id={`region-${region.id}`}>
+                <MemoizedRegion
+                  region={region}
+                  onScrollToCurrentProgram={scrollToCurrentProgram}
+                  onProgramClick={handleProgramClick}
+                />
+              </Box>
             ))
+          ) : (
+            <Box sx={{ p: 2 }}>{renderCurrentSongs()}</Box>
           )}
         </Box>
-      )}
+      </Box>
 
       <Drawer anchor="right" open={selectedProgram !== null} onClose={handleCloseDrawer}>
         {renderProgramDetail()}
