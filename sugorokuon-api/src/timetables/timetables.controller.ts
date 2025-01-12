@@ -119,4 +119,36 @@ export class TimetablesController {
       parseInt(date.slice(6, 8), 10),
     );
   }
+
+  @Get('date/:date')
+  async getAllTimetablesByDate(@Param('date') date: string) {
+    const year = parseInt(date.slice(0, 4), 10);
+    const month = parseInt(date.slice(4, 6), 10);
+    const day = parseInt(date.slice(6, 8), 10);
+
+    const areas = await this.stationService.getAllRegions();
+    const regionsWithTimetables = await Promise.all(
+      areas.map(async (area) => {
+        const stationTimetables = await Promise.all(
+          area.stations.map((station) =>
+            this.dataService.getTimetableByStation(
+              station.id,
+              year,
+              month,
+              day,
+            ),
+          ),
+        );
+        return {
+          id: area.regionId,
+          name: area.regionName,
+          stations: stationTimetables.flat(),
+        };
+      }),
+    );
+
+    return {
+      regions: regionsWithTimetables,
+    };
+  }
 }

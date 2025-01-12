@@ -3,6 +3,9 @@ import { Box, Typography, Paper, IconButton, Collapse } from '@mui/material';
 import { apiClient } from '../shared/api/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import { DatePicker } from '@mui/x-date-pickers';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { format, parse } from 'date-fns';
 
 // APIから返ってくる実際のデータ構造に合わせて型を定義
 interface Program {
@@ -49,15 +52,25 @@ const formatTime = (timeStr: string) => {
 };
 
 const HomePage: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
   const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>({});
 
-  useEffect(() => {
-    const fetchTimetables = async () => {
-      try {
-        const timetablesResponse = await apiClient.get<ApiResponse>('/timetables');
-        setTimetableData(timetablesResponse.data.regions);
-        // 初期状態では最初の地域だけを展開
+  // 初期日付の取得（URLのクエリパラメータから、なければ今日）
+  const initialDate = searchParams.get('date')
+    ? parse(searchParams.get('date')!, 'yyyyMMdd', new Date())
+    : new Date();
+  const [selectedDate, setSelectedDate] = useState<Date>(initialDate);
+
+  const fetchTimetables = async (date: Date) => {
+    try {
+      const dateStr = format(date, 'yyyyMMdd');
+      const timetablesResponse = await apiClient.get<ApiResponse>(`/timetables/date/${dateStr}`);
+      setTimetableData(timetablesResponse.data.regions);
+
+      // 初回のみ最初の地域を展開
+      if (Object.keys(expandedRegions).length === 0) {
         const initialExpanded = timetablesResponse.data.regions.reduce(
           (acc, region, index) => {
             acc[region.id] = index === 0;
@@ -66,13 +79,27 @@ const HomePage: React.FC = () => {
           {} as { [key: string]: boolean },
         );
         setExpandedRegions(initialExpanded);
-      } catch (error) {
-        console.error('Failed to fetch data:', error);
       }
-    };
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
+    }
+  };
 
-    fetchTimetables();
-  }, []);
+  useEffect(() => {
+    fetchTimetables(selectedDate);
+  }, [selectedDate]);
+
+  // URLのクエリパラメータと同期
+  useEffect(() => {
+    const dateStr = format(selectedDate, 'yyyyMMdd');
+    setSearchParams({ date: dateStr });
+  }, [selectedDate, setSearchParams]);
+
+  const handleDateChange = (newDate: Date | null) => {
+    if (newDate) {
+      setSelectedDate(newDate);
+    }
+  };
 
   const handleToggleRegion = (regionId: string) => {
     setExpandedRegions((prev) => ({
@@ -180,7 +207,25 @@ const HomePage: React.FC = () => {
     ));
   };
 
-  return <Box sx={{ p: 3 }}>{renderTimetablesByRegion()}</Box>;
+  return (
+    <Box sx={{ p: 3 }}>
+      <Box sx={{ mb: 3 }}>
+        <DatePicker
+          label="日付を選択"
+          value={selectedDate}
+          onChange={handleDateChange}
+          format="yyyy/MM/dd"
+          slotProps={{
+            textField: {
+              size: 'small',
+              sx: { width: 200 },
+            },
+          }}
+        />
+      </Box>
+      {renderTimetablesByRegion()}
+    </Box>
+  );
 };
 
 export default HomePage;
