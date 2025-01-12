@@ -75,6 +75,15 @@ const formatTime = (timeStr: string) => {
 
 const EXPANDED_REGIONS_KEY = 'expandedRegions';
 
+const findCurrentProgramIndex = (programs: Program[]): number => {
+  const now = new Date();
+  return programs.findIndex((program) => {
+    const startTime = new Date(program.start_time);
+    const endTime = new Date(program.end_time);
+    return startTime <= now && now <= endTime;
+  });
+};
+
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
@@ -165,6 +174,17 @@ const HomePage: React.FC = () => {
     });
   };
 
+  // 番組表のスクロール位置を設定する関数
+  const scrollToCurrentProgram = (container: HTMLElement, programs: Program[]) => {
+    const currentIndex = findCurrentProgramIndex(programs);
+    if (currentIndex >= 0) {
+      const cardWidth = 140; // カードの幅
+      const gap = 12; // カード間のギャップ
+      const scrollPosition = (cardWidth + gap) * currentIndex;
+      container.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+    }
+  };
+
   const renderTimetablesByRegion = () => {
     return timetableData.map((region) => (
       <Paper key={region.id} sx={{ mb: 2, overflow: 'hidden' }}>
@@ -194,6 +214,11 @@ const HomePage: React.FC = () => {
                   {stationTimetable.stationName || '放送局名なし'}
                 </Typography>
                 <Box
+                  ref={(el) => {
+                    if (el instanceof HTMLElement) {
+                      scrollToCurrentProgram(el, stationTimetable.programs);
+                    }
+                  }}
                   sx={{
                     display: 'flex',
                     gap: 1.5,
