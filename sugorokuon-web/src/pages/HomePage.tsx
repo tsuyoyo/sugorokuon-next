@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Paper, IconButton, Collapse } from '@mui/material';
+import { Box, Typography, Paper, IconButton, Collapse, Alert } from '@mui/material';
 import { apiClient } from '../shared/api/client';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { DatePicker } from '@mui/x-date-pickers';
-import { useSearchParams, useNavigate } from 'react-router-dom';
-import { format, parse } from 'date-fns';
+import { useSearchParams } from 'react-router-dom';
+import { format, parse, addDays, subDays, isWithinInterval } from 'date-fns';
 
 // APIから返ってくる実際のデータ構造に合わせて型を定義
 interface Program {
@@ -53,15 +53,33 @@ const formatTime = (timeStr: string) => {
 
 const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
   const [timetableData, setTimetableData] = useState<RegionWithTimetables[]>([]);
   const [expandedRegions, setExpandedRegions] = useState<{ [key: string]: boolean }>({});
+  const [dateError, setDateError] = useState<string | null>(null);
 
-  // 初期日付の取得（URLのクエリパラメータから、なければ今日）
+  const today = new Date();
+  const minDate = subDays(today, 7);
+  const maxDate = addDays(today, 7);
+
+  // 初期日付の取得と検証
   const initialDate = searchParams.get('date')
     ? parse(searchParams.get('date')!, 'yyyyMMdd', new Date())
-    : new Date();
-  const [selectedDate, setSelectedDate] = useState<Date>(initialDate);
+    : today;
+
+  // 日付が範囲内かチェック
+  const isDateValid = isWithinInterval(initialDate, { start: minDate, end: maxDate });
+  const [selectedDate, setSelectedDate] = useState<Date>(isDateValid ? initialDate : today);
+
+  useEffect(() => {
+    if (!isDateValid) {
+      setDateError('指定された日付は範囲外です。今日から前後1週間の範囲で指定してください。');
+      setSelectedDate(today);
+      const todayStr = format(today, 'yyyyMMdd');
+      setSearchParams({ date: todayStr });
+    } else {
+      setDateError(null);
+    }
+  }, []);
 
   const fetchTimetables = async (date: Date) => {
     try {
@@ -97,7 +115,12 @@ const HomePage: React.FC = () => {
 
   const handleDateChange = (newDate: Date | null) => {
     if (newDate) {
-      setSelectedDate(newDate);
+      if (isWithinInterval(newDate, { start: minDate, end: maxDate })) {
+        setSelectedDate(newDate);
+        setDateError(null);
+      } else {
+        setDateError('今日から前後1週間の範囲で指定してください。');
+      }
     }
   };
 
@@ -215,6 +238,8 @@ const HomePage: React.FC = () => {
           value={selectedDate}
           onChange={handleDateChange}
           format="yyyy/MM/dd"
+          minDate={minDate}
+          maxDate={maxDate}
           slotProps={{
             textField: {
               size: 'small',
@@ -222,6 +247,11 @@ const HomePage: React.FC = () => {
             },
           }}
         />
+        {dateError && (
+          <Alert severity="error" sx={{ mt: 2 }}>
+            {dateError}
+          </Alert>
+        )}
       </Box>
       {renderTimetablesByRegion()}
     </Box>
